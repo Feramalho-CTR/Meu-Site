@@ -266,7 +266,7 @@ main {
     font-family: Poppins;
     font-weight: 200;
     font-style: normal;
-    font-size: 20px;
+    font-size: 14px;
     line-height: 30px;
     margin-bottom: 30px;
     margin-left: 160px;
@@ -312,7 +312,7 @@ footer p {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 
@@ -354,7 +354,7 @@ footer .copyright {
     left: 0;
     top: 0;
     height: auto;
-    margin-top: 150px;
+    margin-top: 130px;
     text-align: center;    
 }
 footer .copyright p {
@@ -366,6 +366,6 @@ footer .copyright p {
 footer .copyright a {
     text-decoration: none;
     color: #C5C5C5;
-    font-size: 23px;
+    font-size: 14px;
 }
    
