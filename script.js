@@ -1,21 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.fade-in');
+    const elements = document.querySelectorAll('.fade-in, .texto-rolagem'); // Adicionei .texto-rolagem aqui
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) { // Verifica se o elemento está visível na tela
+            if (entry.isIntersecting) {
                 entry.target.classList.add('aparece');
-                observer.unobserve(entry.target); // Para de observar o elemento após a animação
+                observer.unobserve(entry.target); // Deixa de observar após o efeito
             }
         });
-    }, { threshold: 0.5 }); // Define o threshold para 50% visível
+    }, { threshold: 0.5 });
 
-    // Adiciona a classe 'aparece' para elementos já visíveis no carregamento inicial
-    elements.forEach(element => {
-        if (element.getBoundingClientRect().top < window.innerHeight) {
-            element.classList.add('aparece');
-        } else {
-            observer.observe(element);
-        }
-    });
+    elements.forEach(element => observer.observe(element)); // Observa os elementos
 });

@@ -6,6 +6,18 @@
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out 0.2s, transform 1.5s ease-out 0.2s;
+
+}
+
+.fade-in.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 body {
     background-color: #000000;
@@ -102,6 +114,10 @@ main {
     margin: 0 auto;
     padding: 15px;
 }
+.apresentacao p, .inicio p, footer p {
+    margin-bottom: 25px;  /* Aumenta o espaçamento entre os parágrafos */
+    line-height: 1.8;  /* Aumenta a altura da linha para melhorar a legibilidade */
+}
 
 /* Estilo para a seção tecnologias */
 
@@ -139,6 +155,7 @@ main {
     transform-origin: top; /* Define o ponto de inversão */
     opacity: 0.5; /* Reduz a opacidade para parecer um reflexo */
     filter: blur(2px); /* Adiciona um leve desfoque */
+    pointer-events: none;
 }
 
 .tecnologias-lista {
@@ -164,7 +181,7 @@ main {
 
 .projetos {
     display: flex;
-    flex-direction: column;
+   flex-direction: row;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
@@ -179,34 +196,93 @@ main {
 
 .projetos-lista {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
+    flex-wrap: wrap; /* permite quebrar em telas pequenas */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center; /* alinha verticalmente */
+    gap: 20px; /* espaço entre as imagens */
+    padding: 20px;
+  }
+  
+  .projetos-lista a {
+    display: block;
+  }
+  
+  .projetos-lista img {
+    width: 300px; /* ou qualquer largura que funcione pro seu layout */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .projetos-lista img:hover {
+    transform: scale(1.05);
+  }
+  
+.experiencias-proficionais {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    align-items: center;
+    gap: 30px;
+    padding: 40px 5%;
+    background-color: #000000; /* Cor de fundo opcional para destaque */
+    color: #ffffff;
 }
 
-.projetos-lista img {
-    width: 30%;
-    max-width: 300px;
+.experiencias-proficionais img {
+    width: 100%;
+    max-width: 400px;
     height: auto;
-    margin: 0;
+    flex-shrink: 0;
 }
+
+.experiencias-proficionais div {
+    flex: 1;
+    min-width: 280px;
+}
+
+.experiencias-proficionais h3.gradiente {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #FFA500;
+    background: linear-gradient(180deg, #FFA500, #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.experiencias-proficionais .texto-rolagem {
+    font-size: 1rem;
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa deslocado para baixo */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Suaviza a transição */
+    text-align: justify; /* Justifica o texto */
+    padding: 0 20px; /* Ajusta o espaçamento nas laterais */
+    padding-left: 0; /* Remove o padding esquerdo extra */
+    margin-left: 0; /* Remove qualquer margem à esquerda */
+    margin-bottom: 30px;  /* Aumenta o espaçamento entre os parágrafos */
+    line-height: 1.8;  /* Aumenta o espaçamento entre as linhas */
+    
+}
+
+.experiencias-proficionais .texto-rolagem.aparece {
+    opacity: 1; /* Aparece quando a classe .aparece é adicionada */
+    transform: translateY(0); /* Retorna ao lugar original */
+}
+
+
 
 footer {
     display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    padding: 20px 160px; /* Adiciona espaçamento interno (esquerda e direita alinhados com .experiencias-proficionais) */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 160px;
     background-color: #222222;
     color: #ffffff;
-    text-align: left; /* Garante que o texto fique alinhado à esquerda */
 }
 
 footer .contato, footer .redes-sociais {
     display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    align-items: flex-start; /* Alinha os itens à esquerda */
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
     margin: 10px 0;
 }
@@ -221,24 +297,36 @@ footer p {
     margin-bottom: 10px;
 }
 
+/* Aqui está o ajuste principal */
 footer .redes-sociais {
     display: flex;
-    flex-direction: row; /* Organiza os ícones na horizontal */
-    gap: 10px;
+    flex-direction: row; /* Garante que fiquem lado a lado */
+    gap: 15px;
+    flex-wrap: wrap; /* Quebra linha se a tela for pequena */
+}
+
+footer .redes-sociais a {
+    display: inline-block; /* Garante que as imagens fiquem em linha se estiverem em <a> */
 }
 
 footer .redes-sociais img {
     height: 40px;
     width: 40px;
+    transition: transform 0.3s ease;
+}
+
+footer .redes-sociais img:hover {
+    transform: scale(1.1);
 }
 
 footer .copyright {
     margin-top: 20px;
-    font-size: 0.8rem;
-    text-align: left; /* Garante que o texto fique alinhado à esquerda */
-    width: 100%; /* Faz com que ocupe toda a largura disponível */
-    padding-left: 160px; /* Alinha com o restante do conteúdo do footer */
+    font-size: 0.9rem;
+    text-align: left;
+    width: 100%;
+    padding-left: 160px;
 }
+
 
 /* Estilos para dispositivos móveis */
 @media (max-width: 768px) {
@@ -248,20 +336,18 @@ footer .copyright {
     }
 
     header nav a {
-        font-size: 1rem;
-        margin-right: 10px;
+        font-size: 1.8rem; /* Aumenta o tamanho do texto do menu */
+        margin-right: 15px;
     }
 
-    .inicio h1 {
-        font-size: 2rem;
-    }
-
-    .apresentacao h1 {
-        font-size: 1.5rem;
+    .inicio h1, .apresentacao h1 {
+        font-size: 3rem; /* Aumenta o tamanho dos títulos */
     }
 
     .apresentacao p {
-        font-size: 0.9rem;
+        font-size: 1.5rem; /* Aumenta o tamanho dos parágrafos */
+        line-height: 1.8;
+        padding: 0 10px; /* Ajuste do padding */
     }
 
     .tecnologias img {
@@ -269,26 +355,51 @@ footer .copyright {
         width: 50px;
     }
 
-    .projetos img {
+    .projetos img, .projetos-lista img {
         width: 100%;
         max-width: 700px; /* Define um limite maior para dispositivos móveis */
         height: auto; /* Mantém a proporção da imagem */
         margin: 0 auto; /* Centraliza as imagens */
     }
 
-    .projetos-lista img {
-        width: 100%; /* Faz as imagens ocuparem toda a largura disponível */
-        max-width: 800px; /* Define um limite maior */
-        height: auto; /* Mantém a proporção */
-        margin: 0 auto; /* Centraliza as imagens */
+    .experiencias-proficionais {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 10px; /* Ajuste de padding */
+    }
+
+    .experiencias-proficionais img {
+        max-width: 100%;
+    }
+
+    .experiencias-proficionais h3.gradiente {
+        text-align: center;
+    }
+    .apresentacao p {
+        margin-bottom: 15px;  /* Ajuste do espaçamento para telas menores */
+        line-height: 1.7;  /* Melhora a legibilidade do texto */
+    }
+    .apresentacao p, .inicio p, footer p {
+        margin-bottom: 15px;  /* Ajuste o espaçamento para telas menores */
+        line-height: 1.6;  /* Melhora a legibilidade do texto */
     }
 
     footer h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     footer p {
-        font-size: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    footer .redes-sociais img {
+        width: 60px;
+        height: 60px;
+    }
+
+    footer {
+        padding: 20px;
+        text-align: center; /* Centraliza o texto no footer */
     }
 }
 
@@ -327,7 +438,7 @@ footer .copyright {
 }
 
 .gradiente {
-    background: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -338,22 +449,20 @@ footer .copyright {
     animation-play-state: running;
     transition-duration: 0.75s;
     translate: 0% 0%;
-  }
-  
-  @keyframes onda-de-cor {
+}
+
+@keyframes onda-de-cor {
     to {
-      background-position: -100% 0%;
+        background-position: -100% 0%;
     }
-  }
+}
 
 .inicio p {
     color: #C5C5C5;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    
 }
-
 
 .apresentacao {
     color: #ffffff;
@@ -370,7 +479,8 @@ footer .copyright {
 .apresentacao.aparece {
     opacity: 1;
     transform: translateY(0);
-  }
+}
+
 .apresentacao h1 {
     color: #ffffff;
     text-align: center;
@@ -379,7 +489,6 @@ footer .copyright {
     font-size: 63px;
     width: 80%;
     margin: 0 auto;
-    
 }
 
 .apresentacao p {
@@ -398,6 +507,11 @@ footer .copyright {
     font-weight: 100;
     font-style: normal;
 }
+/* Estilos para espaçamento de parágrafos */
+.apresentacao p, .inicio p, footer p {
+    margin-bottom: 20px;  /* Aumenta o espaçamento entre os parágrafos */
+    line-height: 1.6;  /* Melhora a legibilidade do texto */
+}
 
 
 .codepen-button {
@@ -414,50 +528,52 @@ footer .copyright {
     isolation: isolate;
     margin-left: 320px;
     margin-right: 320px;
-  }
-  .codepen-button::before {
+}
+
+.codepen-button::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 400%;
     height: 100%;
-    background: linear-gradient(115deg,#4fcf70,#fad648,#a767e5,#12bcfe,#44ce7b);
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
     background-size: 25% 100%;
     animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
     animation-play-state: paused;
     translate: -5% 0%;
     transition: translate 0.25s ease-out;
-  }    
+}
+
 .codepen-button:hover::before {
     animation-play-state: running;
     transition-duration: 0.75s;
     translate: 0% 0%;
-  }
-  @keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
+}
+
+@keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
     to {
-      transform: translateX(-25%);
+        transform: translateX(-25%);
     }
-  }
-  .codepen-button span {
+}
+
+.codepen-button span {
     position: relative;
     display: block;
     padding: 1rem 1.5rem;
     font-size: 32px;
     border-radius: 3px;
     height: 100%;
-  }
-  
-    
+}
 
-  .experiencias {
+.experiencias {
     display: block;
     width: 80%;
     margin: auto;
-    opacity: 1 !important; /* adicionado opacity: 1 !important */
-  }
-  
-  .experiencias img {
+    opacity: 1 !important;
+}
+
+.experiencias img {
     height: 220px;
     width: 350px;
     margin: auto;
@@ -465,31 +581,30 @@ footer .copyright {
     top: 0;
     left: 0;
     vertical-align: middle;
-    opacity: 1 !important; /* adicionado opacity: 1 !important */
-  }
-  
-  .tecnologias {
+    opacity: 1 !important;
+}
+
+.tecnologias {
     display: grid;
     gap: 20px;
-    
-  }
-  
-  .tecnologias img {
+}
+
+.tecnologias img {
     height: 80px;
     width: 80px;
     margin: 10px 30px;
     display: inline-block;
-    opacity: 1 !important; 
-    
-  }
+    opacity: 1 !important;
+}
 
 .experiencias, .tecnologias {
     text-align: center;
 }
-  
-  .experiencias img, .tecnologias img {
+
+.experiencias img, .tecnologias img {
     margin: 0 auto;
- }
+}
+
 .projetos {
     display: flex;
     flex-direction: column;
@@ -502,24 +617,29 @@ footer .copyright {
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza as imagens */
 }
+
 .projetos a img {
     height: 220px;
     width: 560px;
     padding: 15px;
 }
+
 .projetos-lista {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 40px; /* Espaçamento maior entre as imagens */
-    padding: 20px; /* Adiciona espaçamento interno */
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+    width: 100%; /* Garante que a lista ocupe toda a largura disponível */
+    max-width: 800px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza a lista */
 }
 
-/* Estilo específico para a imagem projetos.svg */
 .projetos img[src="img/projetos.svg"] {
     width: 50%; /* Ajusta a largura para 50% do contêiner */
     max-width: 300px; /* Define um limite máximo */
-    height: auto; /* Mantém a proporção da imagem */
+    height: auto; /* Mantém a proporção */
     margin: 0 auto; /* Centraliza a imagem */
 }
 
@@ -527,49 +647,28 @@ footer .copyright {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 10px;
 }
+
 .experiencias-proficionais img {
     height: 120px;
     width: 250px;
     align-items: center;
     vertical-align: middle;
 }
-.experiencias-proficionais h3 {
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 52px;
-}
 
-.experiencias-proficionais p {
-    color: #C5C5C5;
-    text-align: block;
-    font-family: Poppins;
-    font-weight: 200;
-    font-style: normal;
-    font-size: 14px;
-    line-height: 30px;
-    margin-bottom: 30px;
-    margin-left: 160px;
+.experiencias-proficionais h3 {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
 }
 
 footer {
-    display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    padding: 20px 160px; /* Adiciona espaçamento interno (esquerda e direita alinhados com .experiencias-proficionais) */
-    background-color: #222222;
-    color: #ffffff;
-    text-align: left; /* Garante que o texto fique alinhado à esquerda */
-}
-
-footer .contato, footer .redes-sociais {
-    display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    gap: 10px;
-    margin: 10px 0;
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
 }
 
 footer h2 {
@@ -578,87 +677,18 @@ footer h2 {
 }
 
 footer p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-footer .redes-sociais {
-    display: flex;
-    flex-direction: row; /* Organiza os ícones na horizontal */
-    gap: 10px;
+    font-size: 1rem;
+    margin-top: 0;
 }
 
 footer .redes-sociais img {
-    height: 40px;
-    width: 40px;
+    width: 50px;
+    margin: 10px;
 }
-
-footer .copyright {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    text-align: left; /* Garante que o texto fique alinhado à esquerda */
-    width: 100%; /* Faz com que ocupe toda a largura disponível */
-    padding-left: 160px; /* Alinha com o restante do conteúdo do footer */
-}
-
-/* Estilos para dispositivos móveis (telas menores que 768px) */
-@media (max-width: 768px) {
-    /* Ajuste do nav */
-    header nav a {
-        font-size: 2rem; /* Aumenta ainda mais o tamanho do texto do menu */
-        margin-right: 25px; /* Adiciona mais espaçamento entre os links */
-    }
-
-    header {
-        padding: 25px; /* Ajusta o espaçamento interno do header */
-    }
-
-    /* Ajuste dos textos */
-    .inicio h1, .apresentacao h1 {
-        font-size: 3.5rem; /* Aumenta o tamanho dos títulos */
-    }
-
-    .inicio p, .apresentacao p {
-        font-size: 1.8rem; /* Aumenta o tamanho dos parágrafos */
-        line-height: 2; /* Melhora o espaçamento entre linhas */
-    }
-
-    /* Ajuste das imagens */
-    .inicio img, .apresentacao img, .tecnologias img, .projetos img {
-        width: 100%; /* Faz as imagens ocuparem toda a largura disponível */
-        max-width: 600px; /* Define um limite maior */
-        height: auto; /* Mantém a proporção */
-    }
-
-    .tecnologias img {
-        width: 140px; /* Aumenta ainda mais o tamanho das logos */
-        height: 140px;
-    }
-
-    .projetos-lista img {
-        width: 100%; /* Aumenta a largura das imagens */
-        max-width: 700px; /* Define um limite maior */
-        height: auto; /* Mantém a proporção */
-        margin: 0 auto; /* Centraliza as imagens */
-    }
-
-    /* Ajuste do footer */
-    footer {
-        padding: 25px; /* Ajusta o espaçamento interno */
-        text-align: left; /* Mantém o texto alinhado à esquerda */
-    }
-
-    footer h2 {
-        font-size: 2.2rem; /* Aumenta o tamanho do título no footer */
-    }
-
-    footer p {
-        font-size: 1.4rem; /* Aumenta o tamanho do texto no footer */
-    }
-
-    footer .redes-sociais img {
-        width: 70px; /* Aumenta ainda mais o tamanho dos ícones das redes sociais */
-        height: 70px;
+/* Ajustes para dispositivos muito pequenos */
+@media (max-width: 480px) {
+    .apresentacao p, .inicio p, footer p {
+        margin-bottom: 10px;  /* Reduz o espaçamento para telas ainda menores */
+        line-height: 1.6;  /* Mantém o espaçamento de linha consistente */
     }
 }
-
