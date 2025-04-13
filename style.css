@@ -171,10 +171,10 @@ main {
 }
 
 .projetos img {
-    width: 90%;
-    max-width: 500px;
-    height: auto;
-    margin: 0 auto;
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    max-width: 800px; /* Define um limite maior para telas grandes */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 0 auto; /* Centraliza as imagens */
 }
 
 .projetos-lista {
@@ -271,12 +271,16 @@ footer .copyright {
 
     .projetos img {
         width: 100%;
-        max-width: 400px;
+        max-width: 700px; /* Define um limite maior para dispositivos móveis */
+        height: auto; /* Mantém a proporção da imagem */
+        margin: 0 auto; /* Centraliza as imagens */
     }
 
     .projetos-lista img {
-        width: 45%;
-        max-width: 200px;
+        width: 100%; /* Faz as imagens ocuparem toda a largura disponível */
+        max-width: 800px; /* Define um limite maior */
+        height: auto; /* Mantém a proporção */
+        margin: 0 auto; /* Centraliza as imagens */
     }
 
     footer h2 {
@@ -494,7 +498,7 @@ footer .copyright {
 
 .projetos img {
     width: 100%; /* Ocupa toda a largura do contêiner */
-    max-width: 600px; /* Define um limite maior para telas grandes */
+    max-width: 800px; /* Define um limite maior para telas grandes */
     height: auto; /* Mantém a proporção da imagem */
     margin: 0 auto; /* Centraliza as imagens */
 }
@@ -597,180 +601,64 @@ footer .copyright {
     padding-left: 160px; /* Alinha com o restante do conteúdo do footer */
 }
 
-/* Estilos para telas menores que 768px (dispositivos móveis) */
+/* Estilos para dispositivos móveis (telas menores que 768px) */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
+    /* Ajuste do nav */
+    header nav a {
+        font-size: 2rem; /* Aumenta ainda mais o tamanho do texto do menu */
+        margin-right: 25px; /* Adiciona mais espaçamento entre os links */
     }
 
     header {
-        flex-direction: column;
-        padding: 10px;
+        padding: 25px; /* Ajusta o espaçamento interno do header */
     }
 
-    header .logo {
-        margin-left: 0;
-    }
-
-    header nav a {
-        font-size: 20px;
-        margin-right: 10px;
-    }
-
-    .inicio h1 {
-        font-size: 48px;
-    }
-
-    .apresentacao h1 {
-        font-size: 36px;
-        width: 90%;
-    }
-
-    .apresentacao p {
-        font-size: 18px;
-        width: 90%;
-    }
-
-    .codepen-button {
-        margin-left: 20px;
-        margin-right: 20px;
-        padding: 10px;
-    }
-
-    .tecnologias {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .tecnologias img {
-        height: 60px;
-        width: 60px;
-    }
-
-    footer {
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    footer .contato, footer .redes-sociais {
-        margin-left: 0;
-        gap: 5px;
-    }
-
-    .projetos {
-        display: flex;
-        flex-direction: column; /* Organiza as imagens na vertical */
-        align-items: center; /* Centraliza as imagens */
-        gap: 40px; /* Espaçamento maior entre as imagens */
-        padding: 20px; /* Adiciona espaçamento interno */
-    }
-
-    .projetos img {
-        width: 95%; /* Aumenta a largura das imagens */
-        max-width: 500px; /* Define um limite maior para dispositivos móveis */
-        height: auto; /* Mantém a proporção da imagem */
-        margin: 0 auto; /* Centraliza as imagens */
-    }
-
-    .projetos-lista {
-        display: flex;
-        flex-direction: column; /* Organiza os itens na vertical */
-        align-items: center; /* Centraliza os itens */
-        gap: 30px; /* Espaçamento entre os itens */
-        padding: 15px; /* Adiciona espaçamento interno */
-    }
-
-    .projetos-lista img {
-        width: 90%; /* Aumenta a largura das imagens */
-        max-width: 500px; /* Define um limite maior */
-        height: auto; /* Mantém a proporção da imagem */
-        margin: 0 auto; /* Centraliza as imagens */
-    }
-}
-
-/* Estilos para telas menores que 480px (dispositivos muito pequenos) */
-@media (max-width: 480px) {
+    /* Ajuste dos textos */
     .inicio h1, .apresentacao h1 {
-        font-size: 28px;
+        font-size: 3.5rem; /* Aumenta o tamanho dos títulos */
     }
 
     .inicio p, .apresentacao p {
-        font-size: 16px;
+        font-size: 1.8rem; /* Aumenta o tamanho dos parágrafos */
+        line-height: 2; /* Melhora o espaçamento entre linhas */
     }
 
-    .codepen-button span {
-        font-size: 20px;
+    /* Ajuste das imagens */
+    .inicio img, .apresentacao img, .tecnologias img, .projetos img {
+        width: 100%; /* Faz as imagens ocuparem toda a largura disponível */
+        max-width: 600px; /* Define um limite maior */
+        height: auto; /* Mantém a proporção */
     }
 
     .tecnologias img {
-        height: 50px;
-        width: 50px;
-    }
-
-    footer h2 {
-        font-size: 36px;
-    }
-
-    footer p {
-        font-size: 12px;
-    }
-
-    .projetos {
-        gap: 40px; /* Espaçamento ainda maior para telas menores */
-        padding: 15px; /* Ajusta o espaçamento interno */
-    }
-
-    .projetos img {
-        width: 100%; /* Ocupa toda a largura disponível */
-        max-width: 450px; /* Ajusta o limite máximo para telas menores */
-        height: auto; /* Mantém a proporção */
-        margin: 0 auto; /* Centraliza as imagens */
-    }
-
-    .projetos-lista {
-        gap: 40px; /* Espaçamento maior entre os itens */
-        padding: 10px; /* Ajusta o espaçamento interno */
+        width: 140px; /* Aumenta ainda mais o tamanho das logos */
+        height: 140px;
     }
 
     .projetos-lista img {
-        width: 100%; /* Ocupa toda a largura disponível */
-        max-width: 400px; /* Ajusta o limite máximo para telas menores */
+        width: 100%; /* Aumenta a largura das imagens */
+        max-width: 700px; /* Define um limite maior */
         height: auto; /* Mantém a proporção */
         margin: 0 auto; /* Centraliza as imagens */
     }
-}
 
-/* Estilo para visualização em desktop (telas maiores que 768px) */
-.projetos-lista {
-    display: flex;
-    flex-direction: row; /* Organiza os itens na horizontal */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-items: center; /* Alinha os itens verticalmente */
-    gap: 40px; /* Espaçamento entre as imagens */
-    padding: 20px; /* Adiciona espaçamento interno */
-}
+    /* Ajuste do footer */
+    footer {
+        padding: 25px; /* Ajusta o espaçamento interno */
+        text-align: left; /* Mantém o texto alinhado à esquerda */
+    }
 
-.projetos-lista img {
-    width: 30%; /* Ajusta a largura das imagens para caberem lado a lado */
-    max-width: 300px; /* Define um limite máximo para as imagens */
-    height: auto; /* Mantém a proporção das imagens */
-    margin: 0; /* Remove margens extras */
-}
+    footer h2 {
+        font-size: 2.2rem; /* Aumenta o tamanho do título no footer */
+    }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+    footer p {
+        font-size: 1.4rem; /* Aumenta o tamanho do texto no footer */
+    }
 
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s, transform 0.8s;
-}
-
-.fade-in.aparece {
-    opacity: 1;
-    transform: translateY(0);
+    footer .redes-sociais img {
+        width: 70px; /* Aumenta ainda mais o tamanho dos ícones das redes sociais */
+        height: 70px;
+    }
 }
 
