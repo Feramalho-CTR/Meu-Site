@@ -225,6 +225,7 @@ main {
     padding: 40px 5%;
     background-color: #000000; /* Cor de fundo opcional para destaque */
     color: #ffffff;
+    text-align: justify;
 }
 
 .experiencias-proficionais img {
@@ -237,6 +238,7 @@ main {
 .experiencias-proficionais div {
     flex: 1;
     min-width: 280px;
+    text-align: justify;
 }
 
 .experiencias-proficionais h3.gradiente {
@@ -364,7 +366,7 @@ footer .copyright {
 
     .experiencias-proficionais {
         flex-direction: column;
-        text-align: center;
+        text-align: justify;
         padding: 0 10px; /* Ajuste de padding */
     }
 
