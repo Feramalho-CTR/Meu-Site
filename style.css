@@ -195,24 +195,49 @@ main {
 
 footer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    flex-direction: column; /* Organiza os itens na vertical */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 20px 160px; /* Adiciona espaçamento interno (esquerda e direita alinhados com .experiencias-proficionais) */
     background-color: #222222;
     color: #ffffff;
-    text-align: center;
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
 }
 
 footer .contato, footer .redes-sociais {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Organiza os itens na vertical */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    gap: 10px;
+    margin: 10px 0;
+}
+
+footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+footer .redes-sociais {
+    display: flex;
+    flex-direction: row; /* Organiza os ícones na horizontal */
     gap: 10px;
 }
 
 footer .redes-sociais img {
     height: 40px;
     width: 40px;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
+    width: 100%; /* Faz com que ocupe toda a largura disponível */
+    padding-left: 160px; /* Alinha com o restante do conteúdo do footer */
 }
 
 /* Estilos para dispositivos móveis */
@@ -527,100 +552,49 @@ footer .redes-sociais img {
 
 footer {
     display: flex;
-    padding: 20px 20px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    flex-direction: column; /* Organiza os itens na vertical */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 20px 160px; /* Adiciona espaçamento interno (esquerda e direita alinhados com .experiencias-proficionais) */
     background-color: #222222;
     color: #ffffff;
-    gap: 10px;
-    margin: 0 auto;
-    align-items: justify;
-    flex-direction: column;
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
 }
-footer .contato  {
+
+footer .contato, footer .redes-sociais {
     display: flex;
-    flex-direction: column;
-    align-items: justify;
-    margin: 10px 0;
+    flex-direction: column; /* Organiza os itens na vertical */
+    align-items: flex-start; /* Alinha os itens à esquerda */
     gap: 10px;
-    margin-left: 300px;
-}
-footer h2 p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 10px 0;
-    gap: 10px;
-    margin-left: 300px;
 }
+
 footer h2 {
-    font-size: 52px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
 footer p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-    font-size: 14px;
-}
-
-
-footer .contatos {
-    display: flex;
-    margin-left: 300px;
-    gap: 10px;
-    align-items: justify;
-}
-footer .contatos img {
-    height: auto;
-    width: 20px;
-}
-footer .contatos a {
-    text-decoration: none;
-    color: #C5C5C5;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
 }
 
 footer .redes-sociais {
     display: flex;
-    margin-left: 300px;
+    flex-direction: row; /* Organiza os ícones na horizontal */
     gap: 10px;
-    align-items: justify;
-    margin-top: 50px;
-    height: 55px;
 }
+
 footer .redes-sociais img {
     height: 40px;
     width: 40px;
-    margin: 0 10px;
-    align-items: center;
-    position: relative;
-    top: 0;
-    left: 0;
-    vertical-align: middle;
-}   
+}
+
 footer .copyright {
-    display: block;
-    gap: 10px;
-    left: 0;
-    top: 0;
-    height: auto;
-    margin-top: 130px;
-    text-align: center;    
-}
-footer .copyright p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-footer .copyright a {
-    text-decoration: none;
-    color: #C5C5C5;
-    font-size: 14px;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    text-align: left; /* Garante que o texto fique alinhado à esquerda */
+    width: 100%; /* Faz com que ocupe toda a largura disponível */
+    padding-left: 160px; /* Alinha com o restante do conteúdo do footer */
 }
 
 /* Estilos para telas menores que 768px (dispositivos móveis) */
