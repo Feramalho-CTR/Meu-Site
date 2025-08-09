@@ -320,6 +320,28 @@ main {
         max-width: 600px; /* Aumenta o tamanho máximo em mobile */
         margin-bottom: 30px; /* Aumenta o espaço abaixo de cada item */
     }
+
+    header {
+        padding: 50px 5%; /* Aumenta o padding para dar mais espaço */
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    header .logo {
+        height: 80px; /* Aumenta o tamanho do logo */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do logo */
+    }
+
+    header nav {
+        width: 100%; /* Garante que a nav ocupe toda a largura */
+        text-align: center; /* Centraliza os links */
+    }
+
+    header nav a {
+        font-size: 2.5rem; /* Aumenta o tamanho da fonte dos links */
+        margin: 10px; /* Aumenta o espaçamento entre os links */
+        display: block; /* Faz os links ocuparem toda a largura */
+    }
 }
 
 /* --- Seção Experiências Profissionais --- */
@@ -331,7 +353,7 @@ main {
     padding: 40px 5%;
     background-color: #000000;
     color: #ffffff;
-    text-align: justify;
+    text-align: justify; /* Garante que o texto fique justificado */
 }
 
 .experiencias-proficionais img {
@@ -344,7 +366,7 @@ main {
 .experiencias-proficionais div {
     flex: 1;
     min-width: 280px;
-    text-align: justify;
+    text-align: justify; /* Garante que o texto fique justificado */
 }
 
 .experiencias-proficionais h3.gradiente {
@@ -359,12 +381,13 @@ main {
 }
 
 .experiencias-proficionais .texto-rolagem {
-    font-size: 1rem;
+    font-size: 1.1rem; /* Aumenta o tamanho da fonte */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.5s ease, transform 1.5s ease;
-    text-align: justify;
+    text-align: justify; /* Garante que o texto fique justificado */
     line-height: 1.8;
+    margin-bottom: 30px;
 }
 
 .experiencias-proficionais .texto-rolagem.aparece {
@@ -414,13 +437,25 @@ footer .copyright {
 
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 10px 0;
+        padding: 50px 5%; /* Aumenta o padding para dar mais espaço */
+        flex-direction: column; /* Coloca os itens em coluna */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    header .logo {
+        height: 80px; /* Aumenta o tamanho do logo */
+        margin-bottom: 20px; /* Adiciona espaço abaixo do logo */
+    }
+
+    header nav {
+        width: 100%; /* Garante que a nav ocupe toda a largura */
+        text-align: center; /* Centraliza os links */
     }
 
     header nav a {
-        font-size: 1.5rem;
-        margin-right: 10px;
+        font-size: 2.5rem; /* Aumenta o tamanho da fonte dos links */
+        margin: 10px; /* Aumenta o espaçamento entre os links */
+        display: block; /* Faz os links ocuparem toda a largura */
     }
 
     .inicio h1, .apresentacao h1 {
@@ -437,7 +472,7 @@ footer .copyright {
         flex-direction: column;
     }
 
-    .projeto-item {
+    .projetos-lista a {
         width: 90%;
         max-width: 600px;
     }
