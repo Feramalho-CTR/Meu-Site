@@ -1,4 +1,15 @@
-/* Ajuste global */
+/* --- Variáveis CSS --- */
+:root {
+    --cor-principal: #ffffff;
+    --cor-secundaria: #222222;
+    --cor-fundo: #000000;
+    --laranja: #FFA500;
+    --tamanho-fonte-principal: 1.2rem;
+    --tamanho-fonte-titulo: 2rem;
+    --espacamento-padrao: 20px;
+}
+
+/* --- Ajuste Global --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,11 +17,19 @@
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-principal);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Efeitos de Animação --- */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.5s ease-out 0.2s, transform 1.5s ease-out 0.2s;
-
 }
 
 .fade-in.aparece {
@@ -18,14 +37,81 @@
     transform: translateY(0);
 }
 
-
-body {
-    background-color: #000000;
-    margin: 0;
-    width: 100%;
-    overflow-x: hidden; /* Evita rolagem horizontal */
+.gradiente {
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b, #4fcf70); /* Adicionado a primeira cor ao final */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 63px;
+    animation: espiral-de-cor 2s linear infinite;
+    background-size: 500% 100%; /* Ajustado para 500% */
+    animation-play-state: running;
+    transition: translate 0.75s ease-out;
+    translate: 0% 0%;
 }
 
+@keyframes espiral-de-cor {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.codepen-button {
+    display: block;
+    cursor: pointer;
+    color: #000000;
+    margin: 0 auto;
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: 3px;
+    isolation: isolate;
+    margin-left: 320px;
+    margin-right: 320px;
+}
+
+.codepen-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    background-size: 25% 100%;
+    animation: codepen-border-anim .75s linear infinite;
+    animation-play-state: paused;
+    translate: -5% 0%;
+    transition: translate 0.25s ease-out;
+}
+
+.codepen-button:hover::before {
+    animation-play-state: running;
+    transition-duration: 0.75s;
+    translate: 0% 0%;
+}
+
+@keyframes codepen-border-anim {
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+.codepen-button span {
+    position: relative;
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 32px;
+    border-radius: 3px;
+    height: 100%;
+}
+
+/* --- Cabeçalho (Header) --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -36,7 +122,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    background-color: #222222;
+    background-color: var(--cor-secundaria);
 }
 
 header .logo {
@@ -44,16 +130,16 @@ header .logo {
 }
 
 header nav a {
-    color: #ffffff;
+    color: var(--cor-principal);
     text-decoration: none;
-    margin-right: 20px;
-    font-size: 1.2rem;
+    margin-right: var(--espacamento-padrao);
+    font-size: var(--tamanho-fonte-principal);
 }
 
+/* --- Seção Principal (Main) --- */
 main {
-    padding: 20px 5%;
+    padding: var(--espacamento-padrao) 5%;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .inicio {
@@ -63,12 +149,11 @@ main {
     align-items: center;
     padding: 40px 0;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .inicio img {
     display: block;
-    max-width: 80%; /* Ajusta a largura da imagem */
+    max-width: 80%;
     height: auto;
     margin: 20px auto;
     opacity: 0;
@@ -88,6 +173,14 @@ main {
     font-size: 2.5rem;
 }
 
+.inicio p {
+    color: #C5C5C5;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- Seção Apresentação --- */
 .apresentacao {
     text-align: center;
     padding: 20px;
@@ -104,126 +197,139 @@ main {
 }
 
 .apresentacao h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 20px 0;
 }
 
 .apresentacao p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     width: 90%;
     margin: 0 auto;
-    padding: 15px;
-}
-.apresentacao p, .inicio p, footer p {
-    margin-bottom: 25px;  /* Aumenta o espaçamento entre os parágrafos */
-    line-height: 1.8;  /* Aumenta a altura da linha para melhorar a legibilidade */
+    padding: 5px;
+    line-height: 1.8;
 }
 
-/* Estilo para a seção tecnologias */
-
+/* --- Seção Tecnologias --- */
 .tecnologias {
     display: flex;
-    flex-direction: column; /* Organiza os itens na vertical */
-    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: column;
+    align-items: center;
     padding: 20px 0;
     text-align: center;
-    gap: 20px; /* Espaçamento entre os itens */
-    width: 100%; /* Garante que a seção ocupe toda a largura disponível */
-    max-width: 800px; /* Limita a largura máxima */
-    margin: 0 auto; /* Centraliza a seção */
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
 .tecnologias h2 {
-    font-size: 2rem;
-    margin-bottom: 20px; /* Espaçamento entre o título e a lista */
-    text-align: center;
-    color: #FFA500; /* Cor base laranja */
-    background: linear-gradient(180deg, #FFA500, #CC8400); /* Degradê fixo laranja */
-    -webkit-background-clip: text; /* Aplica o degradê ao texto */
-    -webkit-text-fill-color: transparent; /* Faz o texto herdar o degradê */
-    text-fill-color: transparent; /* Compatibilidade adicional */
-    position: relative; /* Necessário para o pseudo-elemento */
+    font-size: var(--tamanho-fonte-titulo);
+    margin-bottom: var(--espacamento-padrao);
+    color: var(--laranja);
+    background: linear-gradient(180deg, var(--laranja), #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    position: relative;
 }
 
 .tecnologias h2::after {
-    content: attr(data-text); /* Usa o mesmo texto do elemento */
+    content: attr(data-text);
     position: absolute;
-    top: 100%; /* Posiciona abaixo do texto original */
+    top: 100%;
     left: 0;
     right: 0;
-    color: rgba(255, 165, 0, 0.5); /* Cor laranja com transparência */
-    transform: scaleY(-1); /* Inverte o texto verticalmente */
-    transform-origin: top; /* Define o ponto de inversão */
-    opacity: 0.5; /* Reduz a opacidade para parecer um reflexo */
-    filter: blur(2px); /* Adiciona um leve desfoque */
+    color: rgba(255, 165, 0, 0.5);
+    transform: scaleY(-1);
+    transform-origin: top;
+    opacity: 0.5;
+    filter: blur(2px);
     pointer-events: none;
 }
 
 .tecnologias-lista {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsivo */
-    gap: 20px; /* Espaçamento entre as imagens */
-    justify-content: center; /* Centraliza as imagens horizontalmente */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-content: center;
     align-items: center;
-    width: 100%; /* Garante que a grade ocupe toda a largura disponível */
-    max-width: 800px; /* Limita a largura máxima */
+    width: 100%;
+    max-width: 800px;
 }
 
 .tecnologias-lista img {
-    width: 80px; /* Tamanho padrão das logos */
+    width: 80px;
     height: 80px;
-    margin: 0 auto; /* Centraliza as imagens dentro de cada célula */
-    transition: transform 0.3s ease; /* Adiciona um efeito ao passar o mouse */
+    margin: 0 auto;
+    transition: transform 0.3s ease; /* Efeito de hover restaurado */
 }
 
 .tecnologias-lista img:hover {
-    transform: scale(1.1); /* Aumenta levemente o tamanho ao passar o mouse */
+    transform: scale(1.1); /* Efeito de hover restaurado */
 }
 
+/* --- Seção Projetos --- */
 .projetos {
     display: flex;
-   flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px 0;
 }
 
-.projetos img {
-    width: 100%; /* Ocupa toda a largura do contêiner */
-    max-width: 800px; /* Define um limite maior para telas grandes */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 auto; /* Centraliza as imagens */
-}
-
 .projetos-lista {
     display: flex;
-    flex-wrap: wrap; /* permite quebrar em telas pequenas */
-    justify-content: center; /* centraliza horizontalmente */
-    align-items: center; /* alinha verticalmente */
-    gap: 20px; /* espaço entre as imagens */
+    flex-direction: row; /* Mantém os itens lado a lado em desktop */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     padding: 20px;
-  }
-  
-  .projetos-lista a {
-    display: block;
-  }
-  
-  .projetos-lista img {
-    width: 300px; /* ou qualquer largura que funcione pro seu layout */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+}
+
+.projetos-lista a {
+    width: 45%; /* Define a largura para que fiquem dois itens lado a lado */
+    max-width: 500px; /* Define um limite máximo */
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+    margin-bottom: 20px; /* Adiciona espaço abaixo de cada item */
+}
+
+.projetos-lista a img {
+    width: 100%;
     height: auto;
     transition: transform 0.3s ease;
-  }
-  
-  .projetos-lista img:hover {
+    display: block; /* Remove espaços extras abaixo da imagem */
+}
+
+.projetos-lista a img:hover {
     transform: scale(1.05);
-  }
-  
+}
+
+/* Media query para dispositivos móveis */
+@media (max-width: 768px) {
+    .projetos-lista {
+        flex-direction: column; /* Empilha os itens em mobile */
+        align-items: center; /* Centraliza os itens */
+    }
+
+    .projetos-lista a {
+        width: 90%; /* Ocupa 90% da largura em telas pequenas */
+        max-width: 600px; /* Aumenta o tamanho máximo em mobile */
+        margin-bottom: 30px; /* Aumenta o espaço abaixo de cada item */
+    }
+}
+
+/* --- Seção Experiências Profissionais --- */
 .experiencias-proficionais {
     display: flex;
-    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    flex-wrap: wrap;
     align-items: center;
     gap: 30px;
     padding: 40px 5%;
-    background-color: #000000; /* Cor de fundo opcional para destaque */
+    background-color: #000000;
     color: #ffffff;
     text-align: justify;
 }
@@ -253,444 +359,153 @@ main {
 
 .experiencias-proficionais .texto-rolagem {
     font-size: 1rem;
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Começa deslocado para baixo */
-    transition: opacity 1.5s ease, transform 1.5s ease; /* Suaviza a transição */
-    text-align: justify; /* Justifica o texto */
-    padding: 0 20px; /* Ajusta o espaçamento nas laterais */
-    padding-left: 0; /* Remove o padding esquerdo extra */
-    margin-left: 0; /* Remove qualquer margem à esquerda */
-    margin-bottom: 30px;  /* Aumenta o espaçamento entre os parágrafos */
-    line-height: 1.8;  /* Aumenta o espaçamento entre as linhas */
-    
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    text-align: justify;
+    line-height: 1.8;
 }
 
 .experiencias-proficionais .texto-rolagem.aparece {
-    opacity: 1; /* Aparece quando a classe .aparece é adicionada */
-    transform: translateY(0); /* Retorna ao lugar original */
-}
-
-
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 160px;
-    background-color: #222222;
-    color: #ffffff;
-}
-
-footer .contato, footer .redes-sociais {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin: 10px 0;
-}
-
-footer h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-footer p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-/* Aqui está o ajuste principal */
-footer .redes-sociais {
-    display: flex;
-    flex-direction: row; /* Garante que fiquem lado a lado */
-    gap: 15px;
-    flex-wrap: wrap; /* Quebra linha se a tela for pequena */
-}
-
-footer .redes-sociais a {
-    display: inline-block; /* Garante que as imagens fiquem em linha se estiverem em <a> */
-}
-
-footer .redes-sociais img {
-    height: 40px;
-    width: 40px;
-    transition: transform 0.3s ease;
-}
-
-footer .redes-sociais img:hover {
-    transform: scale(1.1);
-}
-
-footer .copyright {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    text-align: left;
-    width: 100%;
-    padding-left: 160px;
-}
-
-
-/* Estilos para dispositivos móveis */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    header nav a {
-        font-size: 1.8rem; /* Aumenta o tamanho do texto do menu */
-        margin-right: 15px;
-    }
-
-    .inicio h1, .apresentacao h1 {
-        font-size: 3rem; /* Aumenta o tamanho dos títulos */
-    }
-
-    .apresentacao p {
-        font-size: 1.5rem; /* Aumenta o tamanho dos parágrafos */
-        line-height: 1.8;
-        padding: 0 10px; /* Ajuste do padding */
-    }
-
-    .tecnologias img {
-        height: 50px;
-        width: 50px;
-    }
-
-    .projetos img, .projetos-lista img {
-        width: 100%;
-        max-width: 700px; /* Define um limite maior para dispositivos móveis */
-        height: auto; /* Mantém a proporção da imagem */
-        margin: 0 auto; /* Centraliza as imagens */
-    }
-
-    .experiencias-proficionais {
-        flex-direction: column;
-        text-align: justify;
-        padding: 0 10px; /* Ajuste de padding */
-    }
-
-    .experiencias-proficionais img {
-        max-width: 100%;
-    }
-
-    .experiencias-proficionais h3.gradiente {
-        text-align: center;
-    }
-    .apresentacao p {
-        margin-bottom: 15px;  /* Ajuste do espaçamento para telas menores */
-        line-height: 1.7;  /* Melhora a legibilidade do texto */
-    }
-    .apresentacao p, .inicio p, footer p {
-        margin-bottom: 15px;  /* Ajuste o espaçamento para telas menores */
-        line-height: 1.6;  /* Melhora a legibilidade do texto */
-    }
-
-    footer h2 {
-        font-size: 2rem;
-    }
-
-    footer p {
-        font-size: 1.2rem;
-    }
-
-    footer .redes-sociais img {
-        width: 60px;
-        height: 60px;
-    }
-
-    footer {
-        padding: 20px;
-        text-align: center; /* Centraliza o texto no footer */
-    }
-}
-
-/* Estilos para dispositivos muito pequenos */
-@media (max-width: 480px) {
-    .inicio h1, .apresentacao h1 {
-        font-size: 1.2rem;
-    }
-
-    .inicio p, .apresentacao p {
-        font-size: 0.8rem;
-    }
-
-    .tecnologias img {
-        height: 40px;
-        width: 40px;
-    }
-
-    .projetos img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .projetos-lista img {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    footer h2 {
-        font-size: 1.2rem;
-    }
-
-    footer p {
-        font-size: 0.7rem;
-    }
-}
-
-.gradiente {
-    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 63px;
-    animation: onda-de-cor 0.8s linear infinite;
-    transition: translate 0.25s ease-out;
-    background-size: 200% 100%;
-    animation-play-state: running;
-    transition-duration: 0.75s;
-    translate: 0% 0%;
-}
-
-@keyframes onda-de-cor {
-    to {
-        background-position: -100% 0%;
-    }
-}
-
-.inicio p {
-    color: #C5C5C5;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.apresentacao {
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    position: relative;
-    padding: 20px;
-    width: 100%;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s, transform 0.8s;
-}
-.apresentacao.aparece {
     opacity: 1;
     transform: translateY(0);
 }
 
-.apresentacao h1 {
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 63px;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.apresentacao p {
-    color: #ffffff;
-    text-align: center;
-    margin-top: 20px;
-    position: relative;
-    left: 0;
-    top: 0;
-    height: auto;
-    font-size: 26px;
-    width: 50%;
-    margin: 0 auto;
-    padding: 25px;
-    font-family: "Poppins", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
-/* Estilos para espaçamento de parágrafos */
-.apresentacao p, .inicio p, footer p {
-    margin-bottom: 20px;  /* Aumenta o espaçamento entre os parágrafos */
-    line-height: 1.6;  /* Melhora a legibilidade do texto */
-}
-
-
-.codepen-button {
-    display: block;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
-    margin: 0 auto;
-    position: relative;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 32px;
-    overflow: hidden;
-    padding: 3px;
-    isolation: isolate;
-    margin-left: 320px;
-    margin-right: 320px;
-}
-
-.codepen-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 400%;
-    height: 100%;
-    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
-    background-size: 25% 100%;
-    animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
-    animation-play-state: paused;
-    translate: -5% 0%;
-    transition: translate 0.25s ease-out;
-}
-
-.codepen-button:hover::before {
-    animation-play-state: running;
-    transition-duration: 0.75s;
-    translate: 0% 0%;
-}
-
-@keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop {
-    to {
-        transform: translateX(-25%);
-    }
-}
-
-.codepen-button span {
-    position: relative;
-    display: block;
-    padding: 1rem 1.5rem;
-    font-size: 32px;
-    border-radius: 3px;
-    height: 100%;
-}
-
-.experiencias {
-    display: block;
-    width: 80%;
-    margin: auto;
-    opacity: 1 !important;
-}
-
-.experiencias img {
-    height: 220px;
-    width: 350px;
-    margin: auto;
-    position: relative;
-    top: 0;
-    left: 0;
-    vertical-align: middle;
-    opacity: 1 !important;
-}
-
-.tecnologias {
-    display: grid;
-    gap: 20px;
-}
-
-.tecnologias img {
-    height: 80px;
-    width: 80px;
-    margin: 10px 30px;
-    display: inline-block;
-    opacity: 1 !important;
-}
-
-.experiencias, .tecnologias {
-    text-align: center;
-}
-
-.experiencias img, .tecnologias img {
-    margin: 0 auto;
-}
-
-.projetos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.projetos img {
-    width: 100%; /* Ocupa toda a largura do contêiner */
-    max-width: 800px; /* Define um limite maior para telas grandes */
-    height: auto; /* Mantém a proporção da imagem */
-    margin: 0 auto; /* Centraliza as imagens */
-}
-
-.projetos a img {
-    height: 220px;
-    width: 560px;
-    padding: 15px;
-}
-
-.projetos-lista {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
-    width: 100%; /* Garante que a lista ocupe toda a largura disponível */
-    max-width: 800px; /* Limita a largura máxima */
-    margin: 0 auto; /* Centraliza a lista */
-}
-
-.projetos img[src="img/projetos.svg"] {
-    width: 50%; /* Ajusta a largura para 50% do contêiner */
-    max-width: 300px; /* Define um limite máximo */
-    height: auto; /* Mantém a proporção */
-    margin: 0 auto; /* Centraliza a imagem */
-}
-
-.experiencias-proficionais {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
-}
-
-.experiencias-proficionais img {
-    height: 120px;
-    width: 250px;
-    align-items: center;
-    vertical-align: middle;
-}
-
-.experiencias-proficionais h3 {
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-}
-
+/* --- Rodapé (Footer) --- */
 footer {
-    background: #222;
-    color: #fff;
-    padding: 10px;
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 30px 0;
     text-align: center;
     width: 100%;
 }
 
 footer h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: var(--tamanho-fonte-titulo);
+    margin-bottom: var(--espacamento-padrao);
+    color: var(--laranja);
+    background: linear-gradient(180deg, var(--laranja), #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
 }
 
-footer p {
-    font-size: 1rem;
-    margin-top: 0;
+footer .redes-sociais {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 footer .redes-sociais img {
     width: 50px;
     margin: 10px;
 }
-/* Ajustes para dispositivos muito pequenos */
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries (Responsividade) --- */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    header nav a {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+
+    .inicio h1, .apresentacao h1 {
+        font-size: 2.2rem;
+    }
+
+    .apresentacao p {
+        font-size: 1.1rem;
+        width: 98%;
+        padding: 10px 0;
+    }
+
+    .projetos-lista {
+        flex-direction: column;
+    }
+
+    .projeto-item {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .tecnologias-lista {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 15px;
+    }
+
+    .tecnologias-lista img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .experiencias-proficionais {
+        flex-direction: column;
+        padding: 10px 2vw;
+        gap: 20px;
+    }
+
+    .experiencias-proficionais img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .experiencias-proficionais h3 {
+        font-size: 1.3rem;
+    }
+
+    footer h2 {
+        font-size: 1.3rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
+
 @media (max-width: 480px) {
-    .apresentacao p, .inicio p, footer p {
-        margin-bottom: 10px;  /* Reduz o espaçamento para telas ainda menores */
-        line-height: 1.6;  /* Mantém o espaçamento de linha consistente */
+    header nav a {
+        font-size: 1.1rem;
+    }
+
+    .inicio h1, .apresentacao h1 {
+        font-size: 1.2rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.9rem;
+    }
+
+    .projetos-lista {
+        gap: 15px;
+    }
+
+    .tecnologias-lista img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experiencias-proficionais img {
+        max-width: 180px;
+    }
+
+    footer h2 {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
     }
 }
