@@ -593,41 +593,7 @@ footer .copyright {
     background-color: #128C7E;
 }
 
-/* Responsividade do Chatbot para dispositivos menores que 480px */
-@media (max-width: 480px) {
-    #chatbot-button {
-        width: 70px;
-        height: 70px;
-        font-size: 2.5em;
-        bottom: 25px;
-        right: 25px;
-    }
 
-    #chatbot-container {
-        width: 95%; /* Ocupa quase toda a largura da tela */
-        height: 85%; /* Ocupa uma boa parte da altura */
-        bottom: 90px;
-        right: 2.5%; /* Centraliza a caixa de diálogo */
-        left: 2.5%;
-    }
-    
-    #chatbot-header h3 {
-        font-size: 1.5em; /* Aumenta o título */
-    }
-
-    #close-chatbot {
-        font-size: 2.5em; /* Aumenta o botão de fechar */
-    }
-
-    .option-button {
-        font-size: 1.1em; /* Aumenta a fonte dos botões de opção */
-        padding: 10px 15px; /* Aumenta o espaçamento interno */
-    }
-
-    .message {
-        font-size: 1em; /* Aumenta a fonte das mensagens */
-    }
-}
 
 /* --- Media Queries (Responsividade) --- */
 
@@ -740,4 +706,87 @@ footer .copyright {
     footer p {
         font-size: 0.8rem;
     }
+}
+    /* Botão do Chatbot */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;  /* Aumentando a largura */
+    height: 120px; /* Aumentando a altura */
+    border-radius: 50%;
+    background-color: #0a0a0a;
+    color: #fff;
+    font-size: 3em; /* Aumentado o ícone para ficar proporcional */
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+}
+#chatbot-button:hover {
+    transform: scale(1.1);
+}
+
+/* Container do Chatbot */
+#chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--cor-secundaria);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+#chatbot-container.open {
+    display: flex;
+}
+
+/* Corpo do Chatbot (mensagens) */
+#chatbot-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #111;
+}
+
+/* Mensagens do usuário */
+.user-message {
+    background-color: #FFA500; /* Cor Laranja */
+    color: #fff;
+    margin-left: auto;
+}
+
+/* Mensagens do bot */
+.bot-message {
+    background-color: #333;
+    color: #eee;
+    margin-right: auto;
+}
+
+/* Botão de envio */
+#send-button {
+    background-color: #FFA500; /* Cor Laranja */
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Botão do WhatsApp */
+.whatsapp-option {
+    background-color: #FFA500; /* Cor Laranja */
+    color: #fff;
+}
+
+.whatsapp-option:hover {
+    background-color: #CC8400; /* Laranja mais escuro para o hover */
 }
