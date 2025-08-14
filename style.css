@@ -422,6 +422,9 @@ footer .copyright {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     z-index: 2000;
+    display: flex; /* Garante que o ícone esteja centralizado */
+    justify-content: center;
+    align-items: center;
 }
 
 #chatbot-button:hover {
@@ -461,14 +464,6 @@ footer .copyright {
 #chatbot-header h3 {
     font-size: 1.2em;
     margin: 0;
-}
-
-#close-chatbot {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2em;
-    cursor: pointer;
 }
 
 #chatbot-body {
