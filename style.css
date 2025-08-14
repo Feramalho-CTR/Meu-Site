@@ -710,14 +710,14 @@ footer .copyright {
     /* Botão do Chatbot */
 #chatbot-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 120px;  /* Aumentando a largura */
-    height: 120px; /* Aumentando a altura */
+    bottom: 40px;
+    right: 40px;
+    width: 220px;  /* Aumentando a largura */
+    height: 220px; /* Aumentando a altura */
     border-radius: 50%;
     background-color: #0a0a0a;
     color: #fff;
-    font-size: 3em; /* Aumentado o ícone para ficar proporcional */
+    font-size: 5em; /* Aumentado o ícone para ficar proporcional */
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -733,8 +733,8 @@ footer .copyright {
     position: fixed;
     bottom: 90px;
     right: 20px;
-    width: 350px;
-    height: 500px;
+    width: 550px;
+    height: 800px;
     background-color: var(--cor-secundaria);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
