@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="Site para mostrar meus projetos!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -10,17 +10,16 @@
     <title>Felipe Ramalho</title>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo">
-             <img src="img/logofr.svg" alt="felipe ramalho">
-        </a>
-        <nav>
-           <a href="#inicio">Inicio</a>
-           <a href="#projetos">Projetos</a>
-           <a href="#contato">Contato</a>
-        </nav>
-
-    </header>
+  <header>
+    <a href="#inicio" class="logo">
+        <img src="img/logofr.svg" alt="felipe ramalho">
+    </a>
+    <nav class="nav-menu">
+        <a href="#inicio">Início</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+  </header>
    <main>
      <section class="inicio fade-in" id="inicio">
        <img src="img/avatar.svg" alt="Avatar do desenvolvedor" class="fade-in">
@@ -108,31 +107,13 @@
        <p> Desenvolvido por <a href="https://github.com/Feramalho-CTR" target="_blank">@Feramalho-CTR</a></p>
         </div>
     </footer>
-    <button id="chatbot-button">🤖</button>
+    <div id="chatbot-root"></div>
 
-<div id="chatbot-container">
-    <div id="chatbot-header">
-        <h3>Assistente Virtual</h3>
-        <button id="close-chatbot">&times;</button>
-    </div>
-    <div id="chatbot-body">
-        <div class="message bot-message">Olá! Estou aqui para ajudar com algumas dúvidas sobre meus projetos.</div>
-    </div>
-    <div id="chatbot-footer">
-        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
-        <button id="send-button">Enviar</button>
-    </div>
-    <div id="chatbot-options">
-        <button class="option-button">Projetos</button>
-        <button class="option-button">Contato</button>
-        <button class="option-button">Sobre mim</button>
-        <a href="https://wa.me/67981418281?text=Olá!%20Gostaria%20de%20falar%20com%20você%20sobre%20um%20projeto." target="_blank" id="whatsapp-button">
-          <button class="option-button whatsapp-option">Falar no WhatsApp</button>
-        </a>
-    </div>
-</div>
+      <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script src="script.js"></script>
-    
+      <script type="text/babel" src="chatbot.js"></script>
+     <script src="script.js"></script>    
 </body>
 </html>

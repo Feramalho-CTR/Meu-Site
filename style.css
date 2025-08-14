@@ -38,13 +38,13 @@ body {
 }
 
 .gradiente {
-    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b, #4fcf70); /* Adicionado a primeira cor ao final */
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b, #4fcf70);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 63px;
     animation: espiral-de-cor 2s linear infinite;
-    background-size: 500% 100%; /* Ajustado para 500% */
+    background-size: 500% 100%;
     animation-play-state: running;
     transition: translate 0.75s ease-out;
     translate: 0% 0%;
@@ -123,10 +123,12 @@ header {
     left: 0;
     z-index: 1000;
     background-color: var(--cor-secundaria);
+    transition: all 0.3s ease;
 }
 
 header .logo {
     height: 40px;
+    z-index: 1001; /* Garante que o logo fique acima do menu expansível */
 }
 
 header nav a {
@@ -134,6 +136,13 @@ header nav a {
     text-decoration: none;
     margin-right: var(--espacamento-padrao);
     font-size: var(--tamanho-fonte-principal);
+}
+
+/* Estilo padrão da navegação (Desktop) */
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 /* --- Seção Principal (Main) --- */
@@ -261,11 +270,11 @@ main {
     width: 80px;
     height: 80px;
     margin: 0 auto;
-    transition: transform 0.3s ease; /* Efeito de hover restaurado */
+    transition: transform 0.3s ease;
 }
 
 .tecnologias-lista img:hover {
-    transform: scale(1.1); /* Efeito de hover restaurado */
+    transform: scale(1.1);
 }
 
 /* --- Seção Projetos --- */
@@ -279,7 +288,7 @@ main {
 
 .projetos-lista {
     display: flex;
-    flex-direction: row; /* Mantém os itens lado a lado em desktop */
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 20px;
@@ -287,61 +296,25 @@ main {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    flex-wrap: wrap;
 }
 
 .projetos-lista a {
-    width: 45%; /* Define a largura para que fiquem dois itens lado a lado */
-    max-width: 500px; /* Define um limite máximo */
-    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
-    margin-bottom: 20px; /* Adiciona espaço abaixo de cada item */
+    width: 45%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .projetos-lista a img {
     width: 100%;
     height: auto;
     transition: transform 0.3s ease;
-    display: block; /* Remove espaços extras abaixo da imagem */
+    display: block;
 }
 
 .projetos-lista a img:hover {
     transform: scale(1.05);
-}
-
-/* Media query para dispositivos móveis */
-@media (max-width: 768px) {
-    .projetos-lista {
-        flex-direction: column; /* Empilha os itens em mobile */
-        align-items: center; /* Centraliza os itens */
-    }
-
-    .projetos-lista a {
-        width: 90%; /* Ocupa 90% da largura em telas pequenas */
-        max-width: 600px; /* Aumenta o tamanho máximo em mobile */
-        margin-bottom: 30px; /* Aumenta o espaço abaixo de cada item */
-    }
-
-    header {
-        padding: 50px 5%; /* Aumenta o padding para dar mais espaço */
-        flex-direction: column; /* Coloca os itens em coluna */
-        align-items: center; /* Centraliza os itens */
-    }
-
-    header .logo {
-        height: 80px; /* Aumenta o tamanho do logo */
-        margin-bottom: 20px; /* Adiciona espaço abaixo do logo */
-    }
-
-    header nav {
-        width: 100%; /* Garante que a nav ocupe toda a largura */
-        text-align: center; /* Centraliza os links */
-    }
-
-    header nav a {
-        font-size: 2.5rem; /* Aumenta o tamanho da fonte dos links */
-        margin: 10px; /* Aumenta o espaçamento entre os links */
-        display: block; /* Faz os links ocuparem toda a largura */
-    }
 }
 
 /* --- Seção Experiências Profissionais --- */
@@ -353,7 +326,7 @@ main {
     padding: 40px 5%;
     background-color: #000000;
     color: #ffffff;
-    text-align: justify; /* Garante que o texto fique justificado */
+    text-align: justify;
 }
 
 .experiencias-proficionais img {
@@ -366,7 +339,7 @@ main {
 .experiencias-proficionais div {
     flex: 1;
     min-width: 280px;
-    text-align: justify; /* Garante que o texto fique justificado */
+    text-align: justify;
 }
 
 .experiencias-proficionais h3.gradiente {
@@ -377,15 +350,15 @@ main {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
-    text-align: center; /* Adiciona esta linha para centralizar o texto */
+    text-align: center;
 }
 
 .experiencias-proficionais .texto-rolagem {
-    font-size: 1.1rem; /* Aumenta o tamanho da fonte */
+    font-size: 1.1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.5s ease, transform 1.5s ease;
-    text-align: justify; /* Garante que o texto fique justificado */
+    text-align: justify;
     line-height: 1.8;
     margin-bottom: 30px;
 }
@@ -432,7 +405,8 @@ footer .copyright {
     margin-top: 20px;
     font-size: 0.9rem;
 }
-/* Botão do Chatbot */
+
+/* --- ESTILOS DO CHATBOT (DESKTOP) --- */
 #chatbot-button {
     position: fixed;
     bottom: 20px;
@@ -440,7 +414,7 @@ footer .copyright {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #4fcf70;
+    background-color: #0a0a0a;
     color: #fff;
     font-size: 2em;
     border: none;
@@ -454,7 +428,6 @@ footer .copyright {
     transform: scale(1.1);
 }
 
-/* Container do Chatbot */
 #chatbot-container {
     position: fixed;
     bottom: 90px;
@@ -464,7 +437,7 @@ footer .copyright {
     background-color: var(--cor-secundaria);
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: none; /* Começa escondido */
+    display: none;
     flex-direction: column;
     overflow: hidden;
     z-index: 2000;
@@ -474,7 +447,6 @@ footer .copyright {
     display: flex;
 }
 
-/* Cabeçalho do Chatbot */
 #chatbot-header {
     background: #1a1a1a;
     color: #fff;
@@ -499,7 +471,6 @@ footer .copyright {
     cursor: pointer;
 }
 
-/* Corpo do Chatbot (mensagens) */
 #chatbot-body {
     flex: 1;
     padding: 15px;
@@ -515,7 +486,7 @@ footer .copyright {
 }
 
 .user-message {
-    background-color: #4fcf70;
+    background-color: #FFA500;
     color: #fff;
     margin-left: auto;
 }
@@ -526,7 +497,6 @@ footer .copyright {
     margin-right: auto;
 }
 
-/* Rodapé do Chatbot (input) */
 #chatbot-footer {
     display: flex;
     padding: 10px;
@@ -543,7 +513,7 @@ footer .copyright {
 }
 
 #send-button {
-    background-color: #4fcf70;
+    background-color: #FFA500;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -552,7 +522,6 @@ footer .copyright {
     cursor: pointer;
 }
 
-/* Opções de botões */
 #chatbot-options {
     display: flex;
     justify-content: space-around;
@@ -585,39 +554,60 @@ footer .copyright {
 }
 
 .whatsapp-option {
-    background-color: #25D366;
+    background-color: #FFA500;
     color: #fff;
 }
 
 .whatsapp-option:hover {
-    background-color: #128C7E;
+    background-color: #CC8400;
 }
 
-
-
 /* --- Media Queries (Responsividade) --- */
-
 @media (max-width: 768px) {
     header {
-        padding: 50px 5%; /* Aumenta o padding para dar mais espaço */
-        flex-direction: column; /* Coloca os itens em coluna */
-        align-items: center; /* Centraliza os itens */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    header .logo {
-        height: 80px; /* Aumenta o tamanho do logo */
-        margin-bottom: 20px; /* Adiciona espaço abaixo do logo */
+    /* Esconde a navegação padrão em telas menores */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0; /* Alterado para left: 0 */
+        width: 60%;
+        height: 100%;
+        background-color: var(--cor-secundaria);
+        padding: 50px 20px;
+        z-index: 999;
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra ajustada para a direita */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%); /* Alterado para -100% para começar à esquerda */
     }
 
-    header nav {
-        width: 100%; /* Garante que a nav ocupe toda a largura */
-        text-align: center; /* Centraliza os links */
+    /* Estilo do menu quando ele está ativo */
+    .nav-menu.show {
+        display: flex;
+        transform: translateX(0);
+    }
+    
+    .nav-menu.show a {
+        font-size: 1.5rem;
+        margin: 15px 0;
+        padding-left: 20px;
+        display: block;
+        width: 100%;
     }
 
-    header nav a {
-        font-size: 2.5rem; /* Aumenta o tamanho da fonte dos links */
-        margin: 10px; /* Aumenta o espaçamento entre os links */
-        display: block; /* Faz os links ocuparem toda a largura */
+    /* --- Ajuste para a imagem do avatar no mobile --- */
+    .inicio img {
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        margin: 0 auto 20px auto !important;
     }
 
     .inicio h1, .apresentacao h1 {
@@ -674,8 +664,19 @@ footer .copyright {
 }
 
 @media (max-width: 480px) {
-    header nav a {
-        font-size: 1.1rem;
+    /* --- Ajustes Gerais de Mobile --- */
+    header {
+        padding: 10px 5%;
+    }
+    
+    .nav-menu.show {
+        width: 80%;
+    }
+
+    .inicio img {
+        width: 100% !important;
+        max-width: 250px !important;
+        height: auto !important;
     }
 
     .inicio h1, .apresentacao h1 {
@@ -706,87 +707,74 @@ footer .copyright {
     footer p {
         font-size: 0.8rem;
     }
-}
-    /* Botão do Chatbot */
-#chatbot-button {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 220px;  /* Aumentando a largura */
-    height: 220px; /* Aumentando a altura */
-    border-radius: 50%;
-    background-color: #0a0a0a;
-    color: #fff;
-    font-size: 5em; /* Aumentado o ícone para ficar proporcional */
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    z-index: 2000;
-}
-#chatbot-button:hover {
-    transform: scale(1.1);
-}
+ 
+    /* --- AJUSTES DO CHATBOT PARA MOBILE (CORRIGIDO) --- */
+    #chatbot-button {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 3em !important;
+    }
 
-/* Container do Chatbot */
-#chatbot-container {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 550px;
-    height: 800px;
-    background-color: var(--cor-secundaria);
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 2000;
-}
+    #chatbot-container {
+        bottom: 100px !important; /* Aproxima o container do botão */
+        right: 10px !important;
+        width: 95vw !important;
+        height: 80vh !important; /* Aumenta a altura para ocupar mais espaço na tela */
+    }
 
-#chatbot-container.open {
-    display: flex;
-}
+    #chatbot-header {
+        padding: 10px !important;
+    }
 
-/* Corpo do Chatbot (mensagens) */
-#chatbot-body {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    background: #111;
-}
+    #chatbot-header h3 {
+        font-size: 1.2em !important;
+    }
 
-/* Mensagens do usuário */
-.user-message {
-    background-color: #FFA500; /* Cor Laranja */
-    color: #fff;
-    margin-left: auto;
-}
+    #close-chatbot {
+        font-size: 2em !important;
+    }
 
-/* Mensagens do bot */
-.bot-message {
-    background-color: #333;
-    color: #eee;
-    margin-right: auto;
-}
+    #chatbot-body {
+        padding: 10px !important;
+        flex: 1; /* Permite que o corpo do chat se expanda */
+        overflow-y: auto; /* Garante que a rolagem funcione se necessário */
+    }
 
-/* Botão de envio */
-#send-button {
-    background-color: #FFA500; /* Cor Laranja */
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 15px;
-    margin-left: 10px;
-    cursor: pointer;
-}
+    .message {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte das mensagens */
+    }
 
-/* Botão do WhatsApp */
-.whatsapp-option {
-    background-color: #FFA500; /* Cor Laranja */
-    color: #fff;
-}
+    #chatbot-options {
+        flex-direction: row !important; /* Volta para a linha para um layout melhor */
+        gap: 8px !important;
+        padding: 10px !important;
+        flex-wrap: wrap; /* Permite que as opções quebrem a linha se necessário */
+    }
 
-.whatsapp-option:hover {
-    background-color: #CC8400; /* Laranja mais escuro para o hover */
+    .option-button {
+        width: auto !important; /* Deixa o botão se ajustar ao conteúdo */
+        font-size: 0.9em !important;
+        padding: 8px 12px !important;
+    }
+
+    #chatbot-footer {
+        flex-direction: row !important; /* Mantém o footer em linha */
+        gap: 8px !important;
+        padding: 10px !important;
+        align-items: center;
+    }
+    
+    #user-input {
+        width: 70% !important; /* Ajusta a largura do input para caber ao lado do botão de enviar */
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
+
+    #send-button {
+        width: 30% !important; /* Ajusta a largura do botão de enviar */
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
 }
