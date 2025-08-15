@@ -127,7 +127,7 @@ function Chatbot() {
                     <div ref={messagesEndRef} />
                 </div>
                 <div id="chatbot-options">
-                    <a href="https://wa.me/SEU_NUMERO" target="_blank">
+                    <a href="https://wa.me/67981418281" target="_blank">
                         <button className="option-button whatsapp-option">WhatsApp</button>
                     </a>
                     <button className="option-button" onClick={() => handleOptionClick('Projetos')}>Projetos</button>
