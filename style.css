@@ -773,3 +773,60 @@ footer .copyright {
         font-size: 0.9em !important;
     }
 }
+/* ===== CORREÇÕES RÁPIDAS — COLE AO FINAL DO SEU CSS ===== */
+
+/* 1) Mata overflow horizontal global */
+html, body { overflow-x: clip; }
+img, svg, video { max-width: 100%; height: auto; display: block; }
+* { min-width: 0; } /* evita que flex-items “estourem” a largura */
+
+/* 2) Compensa o header fixo pra não esconder o topo do conteúdo */
+main { padding-top: 84px; } /* ajuste se seu header for mais alto/baixo */
+
+/* 3) Títulos gradiente responsivos (evita vazar na horizontal) */
+.gradiente { font-size: clamp(28px, 6vw, 63px); }
+
+/* 4) Botão do chatbot sempre visível por cima de tudo */
+#chatbot-button {
+  position: fixed;
+  inset: auto max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) auto;
+  width: 56px; height: 56px; font-size: 1.6rem;
+  z-index: 99999;
+  display: flex; justify-content: center; align-items: center;
+}
+
+/* 5) Janela do chatbot responsiva (sem sobrar pra fora) */
+#chatbot-container {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(56px + 24px + env(safe-area-inset-bottom)); /* espaço pro botão */
+  width: min(360px, calc(100vw - 32px));
+  height: min(520px, calc(100vh - 140px));
+  z-index: 99998;
+  overflow: hidden;
+  border-radius: 15px; /* garante o arredondado mesmo com ajustes */
+}
+
+/* 6) Mobile tweaks */
+@media (max-width: 480px) {
+  #chatbot-button {
+    width: 56px !important; height: 56px !important; font-size: 1.6rem !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  #chatbot-container {
+    right: max(10px, env(safe-area-inset-right)) !important;
+    bottom: calc(56px + 20px + env(safe-area-inset-bottom)) !important;
+    width: calc(100vw - 20px) !important;
+    height: calc(100vh - 140px) !important;
+  }
+
+  /* evita overflow por causa de colunas lado a lado */
+  .projetos-lista { padding-inline: 10px !important; }
+  .projetos-lista a { width: 100% !important; max-width: 100% !important; }
+}
+
+/* 7) Remove potenciais causas de overflow escondidas */
+.codepen-button { margin-left: auto; margin-right: auto; max-width: 100%; }
+section, header, footer { overflow-x: clip; }

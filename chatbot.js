@@ -1,9 +1,7 @@
 const { useState, useEffect, useRef } = React;
 
-const API_KEY = "SAIzaSyBc65H7Zrilh8BmS9bvdIB7sd74QkR2t94"; 
+const API_KEY = "AIzaSyBc65H7Zrilh8BmS9bvdIB7sd74QkR2t94"; 
 
-// ==========================================================
-// PROMPT DO AGENTE
 const CHATBOT_PROMPT = `
 Você é o assistente virtual do portfólio de Felipe Ramalho. Sua principal função é responder perguntas sobre o trabalho de Felipe, suas habilidades, projetos e como entrar em contato com ele.
 
@@ -17,11 +15,10 @@ Instruções de comportamento:
 - Seja sempre amigável, educado e profissional.
 - Responda apenas com base nas informações fornecidas neste prompt.
 - Não invente informações ou crie conteúdo que não esteja relacionado a Felipe ou ao seu trabalho.
-- Se o usuário perguntar algo fora do contexto do portfólio (ex: notícias, piadas, informações pessoais sobre você ou o mundo), diga que sua única função é ajudar com perguntas sobre Felipe e seu trabalho.
+- Se o usuário perguntar algo fora do contexto do portfólio, diga que sua única função é ajudar com perguntas sobre Felipe e seu trabalho.
 - Mantenha as respostas concisas e diretas.
 - Sua mensagem de boas-vindas deve ser calorosa e apresentar-se como o assistente do portfólio de Felipe.
 `;
-// ==========================================================
 
 function Chatbot() {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,27 +27,9 @@ function Chatbot() {
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef(null);
 
-    // Estado para armazenar o histórico da conversa com a IA
     const [history, setHistory] = useState([
         { role: "user", parts: [{ text: CHATBOT_PROMPT }] }
     ]);
-
-    // Estado para armazenar o modelo da IA
-    const [model, setModel] = useState(null);
-
-    // Efeito para inicializar a IA
-    useEffect(() => {
-        if (window.GoogleGenerativeAI) {
-            try {
-                const genAI = new window.GoogleGenerativeAI(API_KEY);
-                const newModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-                setModel(newModel);
-            } catch (error) {
-                console.error("Erro ao inicializar o Google AI SDK:", error);
-                addMessage("Erro: Não foi possível carregar a IA. Por favor, verifique sua chave de API.", 'bot');
-            }
-        }
-    }, []);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -72,33 +51,34 @@ function Chatbot() {
 
     const addMessage = (text, sender) => {
         const newMessage = { text, sender };
-        setMessages(prevMessages => [...prevMessages, newMessage]);
+        setMessages(prev => [...prev, newMessage]);
     };
 
     const generateAiResponse = async (userPrompt) => {
-        if (!model) {
-            addMessage("Ainda não consegui me conectar com a IA. Por favor, tente novamente em alguns segundos.", 'bot');
-            return;
-        }
-
         setIsTyping(true);
         try {
-            const result = await model.generateContent({
-                contents: [...history, { role: "user", parts: [{ text: userPrompt }] }]
-            });
-            
-            const aiResponse = result.response.text();
-            
-            // Adiciona a nova mensagem e a resposta da IA ao histórico
-            setHistory(prevHistory => [
-                ...prevHistory,
+            const response = await fetch(
+                `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [...history, { role: "user", parts: [{ text: userPrompt }] }]
+                    })
+                }
+            );
+            const data = await response.json();
+            const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Não consegui entender sua pergunta.";
+
+            setHistory(prev => [
+                ...prev,
                 { role: "user", parts: [{ text: userPrompt }] },
                 { role: "model", parts: [{ text: aiResponse }] }
             ]);
 
             addMessage(aiResponse, 'bot');
         } catch (error) {
-            console.error("Erro ao chamar a API do Google AI:", error);
+            console.error("Erro ao chamar API:", error);
             addMessage("Desculpe, não consegui gerar uma resposta. Tente novamente mais tarde.", 'bot');
         } finally {
             setIsTyping(false);
@@ -107,7 +87,7 @@ function Chatbot() {
 
     const handleOptionClick = (option) => {
         addMessage(option, 'user');
-        generateAiResponse(`O usuário clicou na opção "${option}". Dê uma resposta simples e direta sobre isso, em português.`);
+        generateAiResponse(`O usuário clicou na opção "${option}". Dê uma resposta simples e direta sobre isso.`);
     };
 
     const handleInputSend = () => {
@@ -128,7 +108,7 @@ function Chatbot() {
     return (
         <div>
             <button id="chatbot-button" onClick={toggleChatbot}>
-                <span style={{ fontSize: '1.2rem', lineHeight: '1', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '1.2rem' }}>
                     {isOpen ? '✕' : '🤖'}
                 </span>
             </button>
