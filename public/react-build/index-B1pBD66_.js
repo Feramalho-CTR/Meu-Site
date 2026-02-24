@@ -12149,6 +12149,10 @@ const Zd = fy(xd),
             V(!1), r(al.length - 2);
           }, 500);
       }, [K, al.length]),
+      Yn.useEffect(() => {
+        const timer = setInterval(sl, 5000);
+        return () => clearInterval(timer);
+      }, [K]),
       At.jsxs("div", {
         className: "carousel-container",
         children: [
