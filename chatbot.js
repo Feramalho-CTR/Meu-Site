@@ -1,6 +1,6 @@
 const { useState, useEffect, useRef } = React;
 
-const API_KEY = "AIzaSyBc65H7Zrilh8BmS9bvdIB7sd74QkR2t94"; 
+const API_KEY = "AIzaSyBc65H7Zrilh8BmS9bvdIB7sd74QkR2t94";
 
 const CHATBOT_PROMPT = `
 Você é o assistente virtual do portfólio de Felipe Ramalho. Sua principal função é responder perguntas sobre o trabalho de Felipe, suas habilidades, projetos e como entrar em contato com ele.
@@ -107,7 +107,12 @@ function Chatbot() {
 
     return (
         <div>
-            <button id="chatbot-button" onClick={toggleChatbot}>
+            <button
+                id="chatbot-button"
+                onClick={toggleChatbot}
+                aria-label={isOpen ? "Fechar chat" : "Abrir chat"}
+                title={isOpen ? "Fechar chat" : "Abrir chat"}
+            >
                 <span style={{ fontSize: '1.2rem' }}>
                     {isOpen ? '✕' : '🤖'}
                 </span>

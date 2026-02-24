@@ -1,0 +1,28 @@
+{
+  "name": "meu-site",
+  "version": "1.0.0",
+  "description": "Esse site tem o ituito de ser meu site pessoal, para mostrar meus projetos e habilidade que estou desenvolvendo.",
+  "main": "chatbot.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Feramalho-CTR/Meu-Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Feramalho-CTR/Meu-Site/issues"
+  },
+  "homepage": "https://github.com/Feramalho-CTR/Meu-Site#readme",
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "vite": "^7.3.1"
+  }
+}
