@@ -1,0 +1,832 @@
+/* --- Variáveis CSS --- */
+:root {
+    --cor-principal: #ffffff;
+    --cor-secundaria: #222222;
+    --cor-fundo: #000000;
+    --laranja: #FFA500;
+    --tamanho-fonte-principal: 1.2rem;
+    --tamanho-fonte-titulo: 2rem;
+    --espacamento-padrao: 20px;
+}
+
+/* --- Ajuste Global --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-principal);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* --- Efeitos de Animação --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out 0.2s, transform 1.5s ease-out 0.2s;
+}
+
+.fade-in.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gradiente {
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b, #4fcf70);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 63px;
+    animation: espiral-de-cor 2s linear infinite;
+    background-size: 500% 100%;
+    animation-play-state: running;
+    transition: translate 0.75s ease-out;
+    translate: 0% 0%;
+}
+
+@keyframes espiral-de-cor {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.codepen-button {
+    display: block;
+    cursor: pointer;
+    color: #000000;
+    margin: 0 auto;
+    position: relative;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: 3px;
+    isolation: isolate;
+    margin-left: 320px;
+    margin-right: 320px;
+}
+
+.codepen-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    background-size: 25% 100%;
+    animation: codepen-border-anim .75s linear infinite;
+    animation-play-state: paused;
+    translate: -5% 0%;
+    transition: translate 0.25s ease-out;
+}
+
+.codepen-button:hover::before {
+    animation-play-state: running;
+    transition-duration: 0.75s;
+    translate: 0% 0%;
+}
+
+@keyframes codepen-border-anim {
+    to {
+        transform: translateX(-25%);
+    }
+}
+
+.codepen-button span {
+    position: relative;
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 32px;
+    border-radius: 3px;
+    height: 100%;
+}
+
+/* --- Cabeçalho (Header) --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--cor-secundaria);
+    transition: all 0.3s ease;
+}
+
+header .logo {
+    height: 40px;
+    z-index: 1001; /* Garante que o logo fique acima do menu expansível */
+}
+
+header nav a {
+    color: var(--cor-principal);
+    text-decoration: none;
+    margin-right: var(--espacamento-padrao);
+    font-size: var(--tamanho-fonte-principal);
+}
+
+/* Estilo padrão da navegação (Desktop) */
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* --- Seção Principal (Main) --- */
+main {
+    padding: var(--espacamento-padrao) 5%;
+    width: 100%;
+}
+
+.inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.inicio img {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 20px auto;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.inicio img.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inicio h1 {
+    color: #ffffff;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+}
+
+.inicio p {
+    color: #C5C5C5;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- Seção Apresentação --- */
+.apresentacao {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.apresentacao.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.apresentacao h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.apresentacao p {
+    font-size: 1.5rem;
+    width: 90%;
+    margin: 0 auto;
+    padding: 5px;
+    line-height: 1.8;
+}
+
+/* --- Seção Tecnologias --- */
+.tecnologias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tecnologias h2 {
+    font-size: var(--tamanho-fonte-titulo);
+    margin-bottom: var(--espacamento-padrao);
+    color: var(--laranja);
+    background: linear-gradient(180deg, var(--laranja), #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    position: relative;
+}
+
+.tecnologias h2::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: rgba(255, 165, 0, 0.5);
+    transform: scaleY(-1);
+    transform-origin: top;
+    opacity: 0.5;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.tecnologias-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.tecnologias-lista img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.tecnologias-lista img:hover {
+    transform: scale(1.1);
+}
+
+/* --- Seção Projetos --- */
+.projetos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.projetos-lista {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.projetos-lista a {
+    width: 45%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.projetos-lista a img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.projetos-lista a img:hover {
+    transform: scale(1.05);
+}
+
+/* --- Seção Experiências Profissionais --- */
+.experiencias-proficionais {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 5%;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: justify;
+}
+
+.experiencias-proficionais img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.experiencias-proficionais div {
+    flex: 1;
+    min-width: 280px;
+    text-align: justify;
+}
+
+.experiencias-proficionais h3.gradiente {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #FFA500;
+    background: linear-gradient(180deg, #FFA500, #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    text-align: center;
+}
+
+.experiencias-proficionais .texto-rolagem {
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.experiencias-proficionais .texto-rolagem.aparece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+}
+
+footer h2 {
+    font-size: var(--tamanho-fonte-titulo);
+    margin-bottom: var(--espacamento-padrao);
+    color: var(--laranja);
+    background: linear-gradient(180deg, var(--laranja), #CC8400);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+footer .redes-sociais {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .redes-sociais img {
+    width: 50px;
+    margin: 10px;
+}
+
+footer .copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* --- ESTILOS DO CHATBOT (DESKTOP) --- */
+#chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0a0a0a;
+    color: #fff;
+    font-size: 2em;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+    display: flex; /* Garante que o ícone esteja centralizado */
+    justify-content: center;
+    align-items: center;
+}
+
+#chatbot-button:hover {
+    transform: scale(1.1);
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: var(--cor-secundaria);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+#chatbot-container.open {
+    display: flex;
+}
+
+#chatbot-header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#chatbot-header h3 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+#chatbot-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #111;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #FFA500;
+    color: #fff;
+    margin-left: auto;
+}
+
+.bot-message {
+    background-color: #333;
+    color: #eee;
+    margin-right: auto;
+}
+
+#chatbot-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #333;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+}
+
+#send-button {
+    background-color: #FFA500;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#chatbot-options {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-top: 1px solid #333;
+    background: #1a1a1a;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#chatbot-options a {
+    text-decoration: none;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+}
+
+.option-button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 0;
+}
+
+.whatsapp-option {
+    background-color: #FFA500;
+    color: #fff;
+}
+
+.whatsapp-option:hover {
+    background-color: #CC8400;
+}
+
+/* --- Media Queries (Responsividade) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Esconde a navegação padrão em telas menores */
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: 0; /* Alterado para left: 0 */
+        width: 60%;
+        height: 100%;
+        background-color: var(--cor-secundaria);
+        padding: 50px 20px;
+        z-index: 999;
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra ajustada para a direita */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%); /* Alterado para -100% para começar à esquerda */
+    }
+
+    /* Estilo do menu quando ele está ativo */
+    .nav-menu.show {
+        display: flex;
+        transform: translateX(0);
+    }
+    
+    .nav-menu.show a {
+        font-size: 1.5rem;
+        margin: 15px 0;
+        padding-left: 20px;
+        display: block;
+        width: 100%;
+    }
+
+    /* --- Ajuste para a imagem do avatar no mobile --- */
+    .inicio img {
+        width: 100% !important;
+        max-width: 300px !important;
+        height: auto !important;
+        margin: 0 auto 20px auto !important;
+    }
+
+    .inicio h1, .apresentacao h1 {
+        font-size: 2.2rem;
+    }
+
+    .apresentacao p {
+        font-size: 1.1rem;
+        width: 98%;
+        padding: 10px 0;
+    }
+
+    .projetos-lista {
+        flex-direction: column;
+    }
+
+    .projetos-lista a {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .tecnologias-lista {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 15px;
+    }
+
+    .tecnologias-lista img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .experiencias-proficionais {
+        flex-direction: column;
+        padding: 10px 2vw;
+        gap: 20px;
+    }
+
+    .experiencias-proficionais img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .experiencias-proficionais h3 {
+        font-size: 1.3rem;
+    }
+
+    footer h2 {
+        font-size: 1.3rem;
+    }
+
+    footer p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* --- Ajustes Gerais de Mobile --- */
+    header {
+        padding: 10px 5%;
+    }
+    
+    .nav-menu.show {
+        width: 80%;
+    }
+
+    .inicio img {
+        width: 100% !important;
+        max-width: 250px !important;
+        height: auto !important;
+    }
+
+    .inicio h1, .apresentacao h1 {
+        font-size: 1.2rem;
+    }
+
+    .apresentacao p {
+        font-size: 0.9rem;
+    }
+
+    .projetos-lista {
+        gap: 15px;
+    }
+
+    .tecnologias-lista img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experiencias-proficionais img {
+        max-width: 180px;
+    }
+
+    footer h2 {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+ 
+    /* --- AJUSTES DO CHATBOT PARA MOBILE (CORRIGIDO) --- */
+    #chatbot-button {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 3em !important;
+    }
+
+    #chatbot-container {
+        bottom: 100px !important; /* Aproxima o container do botão */
+        right: 10px !important;
+        width: 95vw !important;
+        height: 80vh !important; /* Aumenta a altura para ocupar mais espaço na tela */
+    }
+
+    #chatbot-header {
+        padding: 10px !important;
+    }
+
+    #chatbot-header h3 {
+        font-size: 1.2em !important;
+    }
+
+    #close-chatbot {
+        font-size: 2em !important;
+    }
+
+    #chatbot-body {
+        padding: 10px !important;
+        flex: 1; /* Permite que o corpo do chat se expanda */
+        overflow-y: auto; /* Garante que a rolagem funcione se necessário */
+    }
+
+    .message {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte das mensagens */
+    }
+
+    #chatbot-options {
+        flex-direction: row !important; /* Volta para a linha para um layout melhor */
+        gap: 8px !important;
+        padding: 10px !important;
+        flex-wrap: wrap; /* Permite que as opções quebrem a linha se necessário */
+    }
+
+    .option-button {
+        width: auto !important; /* Deixa o botão se ajustar ao conteúdo */
+        font-size: 0.9em !important;
+        padding: 8px 12px !important;
+    }
+
+    #chatbot-footer {
+        flex-direction: row !important; /* Mantém o footer em linha */
+        gap: 8px !important;
+        padding: 10px !important;
+        align-items: center;
+    }
+    
+    #user-input {
+        width: 70% !important; /* Ajusta a largura do input para caber ao lado do botão de enviar */
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
+
+    #send-button {
+        width: 30% !important; /* Ajusta a largura do botão de enviar */
+        padding: 10px !important;
+        font-size: 0.9em !important;
+    }
+}
+/* ===== CORREÇÕES RÁPIDAS — COLE AO FINAL DO SEU CSS ===== */
+
+/* 1) Mata overflow horizontal global */
+html, body { overflow-x: clip; }
+img, svg, video { max-width: 100%; height: auto; display: block; }
+* { min-width: 0; } /* evita que flex-items “estourem” a largura */
+
+/* 2) Compensa o header fixo pra não esconder o topo do conteúdo */
+main { padding-top: 84px; } /* ajuste se seu header for mais alto/baixo */
+
+/* 3) Títulos gradiente responsivos (evita vazar na horizontal) */
+.gradiente { font-size: clamp(28px, 6vw, 63px); }
+
+/* 4) Botão do chatbot sempre visível por cima de tudo */
+#chatbot-button {
+  position: fixed;
+  inset: auto max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) auto;
+  width: 56px; height: 56px; font-size: 1.6rem;
+  z-index: 99999;
+  display: flex; justify-content: center; align-items: center;
+}
+
+/* 5) Janela do chatbot responsiva (sem sobrar pra fora) */
+#chatbot-container {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: calc(56px + 24px + env(safe-area-inset-bottom)); /* espaço pro botão */
+  width: min(360px, calc(100vw - 32px));
+  height: min(520px, calc(100vh - 140px));
+  z-index: 99998;
+  overflow: hidden;
+  border-radius: 15px; /* garante o arredondado mesmo com ajustes */
+}
+
+/* 6) Mobile tweaks */
+@media (max-width: 480px) {
+  #chatbot-button {
+    width: 56px !important; height: 56px !important; font-size: 1.6rem !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    right: max(16px, env(safe-area-inset-right)) !important;
+  }
+
+  #chatbot-container {
+    right: max(10px, env(safe-area-inset-right)) !important;
+    bottom: calc(56px + 20px + env(safe-area-inset-bottom)) !important;
+    width: calc(100vw - 20px) !important;
+    height: calc(100vh - 140px) !important;
+  }
+
+  /* evita overflow por causa de colunas lado a lado */
+  .projetos-lista { padding-inline: 10px !important; }
+  .projetos-lista a { width: 100% !important; max-width: 100% !important; }
+}
+
+/* 7) Remove potenciais causas de overflow escondidas */
+.codepen-button { margin-left: auto; margin-right: auto; max-width: 100%; }
+section, header, footer { overflow-x: clip; }
