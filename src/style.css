@@ -54,6 +54,7 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     100% {
         background-position: 100% 50%;
     }
@@ -128,7 +129,8 @@ header {
 
 header .logo {
     height: 40px;
-    z-index: 1001; /* Garante que o logo fique acima do menu expansível */
+    z-index: 1001;
+    /* Garante que o logo fique acima do menu expansível */
 }
 
 header nav a {
@@ -216,6 +218,7 @@ main {
     margin: 0 auto;
     padding: 5px;
     line-height: 1.8;
+    text-align: center;
 }
 
 /* --- Seção Tecnologias --- */
@@ -237,8 +240,8 @@ main {
     color: var(--laranja);
     background: linear-gradient(180deg, var(--laranja), #CC8400);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
     position: relative;
 }
 
@@ -348,8 +351,8 @@ main {
     color: #FFA500;
     background: linear-gradient(180deg, #FFA500, #CC8400);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
     text-align: center;
 }
 
@@ -383,8 +386,8 @@ footer h2 {
     color: var(--laranja);
     background: linear-gradient(180deg, var(--laranja), #CC8400);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
 }
 
 footer .redes-sociais {
@@ -422,7 +425,8 @@ footer .copyright {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     z-index: 2000;
-    display: flex; /* Garante que o ícone esteja centralizado */
+    display: flex;
+    /* Garante que o ícone esteja centralizado */
     justify-content: center;
     align-items: center;
 }
@@ -572,15 +576,18 @@ footer .copyright {
         align-items: flex-start;
         position: fixed;
         top: 0;
-        left: 0; /* Alterado para left: 0 */
+        left: 0;
+        /* Alterado para left: 0 */
         width: 60%;
         height: 100%;
         background-color: var(--cor-secundaria);
         padding: 50px 20px;
         z-index: 999;
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5); /* Sombra ajustada para a direita */
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+        /* Sombra ajustada para a direita */
         transition: transform 0.3s ease-in-out;
-        transform: translateX(-100%); /* Alterado para -100% para começar à esquerda */
+        transform: translateX(-100%);
+        /* Alterado para -100% para começar à esquerda */
     }
 
     /* Estilo do menu quando ele está ativo */
@@ -588,7 +595,7 @@ footer .copyright {
         display: flex;
         transform: translateX(0);
     }
-    
+
     .nav-menu.show a {
         font-size: 1.5rem;
         margin: 15px 0;
@@ -605,7 +612,8 @@ footer .copyright {
         margin: 0 auto 20px auto !important;
     }
 
-    .inicio h1, .apresentacao h1 {
+    .inicio h1,
+    .apresentacao h1 {
         font-size: 2.2rem;
     }
 
@@ -659,11 +667,12 @@ footer .copyright {
 }
 
 @media (max-width: 480px) {
+
     /* --- Ajustes Gerais de Mobile --- */
     header {
         padding: 10px 5%;
     }
-    
+
     .nav-menu.show {
         width: 80%;
     }
@@ -674,7 +683,8 @@ footer .copyright {
         height: auto !important;
     }
 
-    .inicio h1, .apresentacao h1 {
+    .inicio h1,
+    .apresentacao h1 {
         font-size: 1.2rem;
     }
 
@@ -702,7 +712,7 @@ footer .copyright {
     footer p {
         font-size: 0.8rem;
     }
- 
+
     /* --- AJUSTES DO CHATBOT PARA MOBILE (CORRIGIDO) --- */
     #chatbot-button {
         bottom: 20px !important;
@@ -713,10 +723,12 @@ footer .copyright {
     }
 
     #chatbot-container {
-        bottom: 100px !important; /* Aproxima o container do botão */
+        bottom: 100px !important;
+        /* Aproxima o container do botão */
         right: 10px !important;
         width: 95vw !important;
-        height: 80vh !important; /* Aumenta a altura para ocupar mais espaço na tela */
+        height: 80vh !important;
+        /* Aumenta a altura para ocupar mais espaço na tela */
     }
 
     #chatbot-header {
@@ -733,100 +745,154 @@ footer .copyright {
 
     #chatbot-body {
         padding: 10px !important;
-        flex: 1; /* Permite que o corpo do chat se expanda */
-        overflow-y: auto; /* Garante que a rolagem funcione se necessário */
+        flex: 1;
+        /* Permite que o corpo do chat se expanda */
+        overflow-y: auto;
+        /* Garante que a rolagem funcione se necessário */
     }
 
     .message {
-        font-size: 0.9em; /* Ajusta o tamanho da fonte das mensagens */
+        font-size: 0.9em;
+        /* Ajusta o tamanho da fonte das mensagens */
     }
 
     #chatbot-options {
-        flex-direction: row !important; /* Volta para a linha para um layout melhor */
+        flex-direction: row !important;
+        /* Volta para a linha para um layout melhor */
         gap: 8px !important;
         padding: 10px !important;
-        flex-wrap: wrap; /* Permite que as opções quebrem a linha se necessário */
+        flex-wrap: wrap;
+        /* Permite que as opções quebrem a linha se necessário */
     }
 
     .option-button {
-        width: auto !important; /* Deixa o botão se ajustar ao conteúdo */
+        width: auto !important;
+        /* Deixa o botão se ajustar ao conteúdo */
         font-size: 0.9em !important;
         padding: 8px 12px !important;
     }
 
     #chatbot-footer {
-        flex-direction: row !important; /* Mantém o footer em linha */
+        flex-direction: row !important;
+        /* Mantém o footer em linha */
         gap: 8px !important;
         padding: 10px !important;
         align-items: center;
     }
-    
+
     #user-input {
-        width: 70% !important; /* Ajusta a largura do input para caber ao lado do botão de enviar */
+        width: 70% !important;
+        /* Ajusta a largura do input para caber ao lado do botão de enviar */
         padding: 10px !important;
         font-size: 0.9em !important;
     }
 
     #send-button {
-        width: 30% !important; /* Ajusta a largura do botão de enviar */
+        width: 30% !important;
+        /* Ajusta a largura do botão de enviar */
         padding: 10px !important;
         font-size: 0.9em !important;
     }
 }
+
 /* ===== CORREÇÕES RÁPIDAS — COLE AO FINAL DO SEU CSS ===== */
 
 /* 1) Mata overflow horizontal global */
-html, body { overflow-x: clip; }
-img, svg, video { max-width: 100%; height: auto; display: block; }
-* { min-width: 0; } /* evita que flex-items “estourem” a largura */
+html,
+body {
+    overflow-x: clip;
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+* {
+    min-width: 0;
+}
+
+/* evita que flex-items “estourem” a largura */
 
 /* 2) Compensa o header fixo pra não esconder o topo do conteúdo */
-main { padding-top: 84px; } /* ajuste se seu header for mais alto/baixo */
+main {
+    padding-top: 84px;
+}
+
+/* ajuste se seu header for mais alto/baixo */
 
 /* 3) Títulos gradiente responsivos (evita vazar na horizontal) */
-.gradiente { font-size: clamp(28px, 6vw, 63px); }
+.gradiente {
+    font-size: clamp(28px, 6vw, 63px);
+}
 
 /* 4) Botão do chatbot sempre visível por cima de tudo */
 #chatbot-button {
-  position: fixed;
-  inset: auto max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) auto;
-  width: 56px; height: 56px; font-size: 1.6rem;
-  z-index: 99999;
-  display: flex; justify-content: center; align-items: center;
+    position: fixed;
+    inset: auto max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) auto;
+    width: 56px;
+    height: 56px;
+    font-size: 1.6rem;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 5) Janela do chatbot responsiva (sem sobrar pra fora) */
 #chatbot-container {
-  position: fixed;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: calc(56px + 24px + env(safe-area-inset-bottom)); /* espaço pro botão */
-  width: min(360px, calc(100vw - 32px));
-  height: min(520px, calc(100vh - 140px));
-  z-index: 99998;
-  overflow: hidden;
-  border-radius: 15px; /* garante o arredondado mesmo com ajustes */
+    position: fixed;
+    right: max(16px, env(safe-area-inset-right));
+    bottom: calc(56px + 24px + env(safe-area-inset-bottom));
+    /* espaço pro botão */
+    width: min(360px, calc(100vw - 32px));
+    height: min(520px, calc(100vh - 140px));
+    z-index: 99998;
+    overflow: hidden;
+    border-radius: 15px;
+    /* garante o arredondado mesmo com ajustes */
 }
 
 /* 6) Mobile tweaks */
 @media (max-width: 480px) {
-  #chatbot-button {
-    width: 56px !important; height: 56px !important; font-size: 1.6rem !important;
-    bottom: max(16px, env(safe-area-inset-bottom)) !important;
-    right: max(16px, env(safe-area-inset-right)) !important;
-  }
+    #chatbot-button {
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 1.6rem !important;
+        bottom: max(16px, env(safe-area-inset-bottom)) !important;
+        right: max(16px, env(safe-area-inset-right)) !important;
+    }
 
-  #chatbot-container {
-    right: max(10px, env(safe-area-inset-right)) !important;
-    bottom: calc(56px + 20px + env(safe-area-inset-bottom)) !important;
-    width: calc(100vw - 20px) !important;
-    height: calc(100vh - 140px) !important;
-  }
+    #chatbot-container {
+        right: max(10px, env(safe-area-inset-right)) !important;
+        bottom: calc(56px + 20px + env(safe-area-inset-bottom)) !important;
+        width: calc(100vw - 20px) !important;
+        height: calc(100vh - 140px) !important;
+    }
 
-  /* evita overflow por causa de colunas lado a lado */
-  .projetos-lista { padding-inline: 10px !important; }
-  .projetos-lista a { width: 100% !important; max-width: 100% !important; }
+    /* evita overflow por causa de colunas lado a lado */
+    .projetos-lista {
+        padding-inline: 10px !important;
+    }
+
+    .projetos-lista a {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
 /* 7) Remove potenciais causas de overflow escondidas */
-.codepen-button { margin-left: auto; margin-right: auto; max-width: 100%; }
-section, header, footer { overflow-x: clip; }
+.codepen-button {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+section,
+header,
+footer {
+    overflow-x: clip;
+}
