@@ -12169,15 +12169,22 @@ const Zd = fy(xd),
                   className: "carousel-item",
                   children: At.jsx("div", {
                     className: "item-content",
-                    children: At.jsx("a", {
-                      href: U.link,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                      children: At.jsx("img", {
-                        src: U.image,
-                        alt: U.title,
-                        className: "item-image",
-                      }),
+                    children: At.jsxs("div", {
+                      className: "item-link",
+                      children: [
+                        At.jsx("img", {
+                          src: U.image,
+                          alt: U.title,
+                          className: "item-image",
+                        }),
+                        At.jsx("a", {
+                          href: U.link,
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                          className: "floating-button",
+                          children: "Acessar Curso",
+                        }),
+                      ],
                     }),
                   }),
                 },
