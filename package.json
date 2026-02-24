@@ -1,6 +1,7 @@
 {
   "name": "meu-site",
   "version": "1.0.0",
+  "type": "module",
   "description": "Esse site tem o ituito de ser meu site pessoal, para mostrar meus projetos e habilidade que estou desenvolvendo.",
   "main": "chatbot.js",
   "engines": {
