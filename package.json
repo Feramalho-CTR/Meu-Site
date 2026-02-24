@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Esse site tem o ituito de ser meu site pessoal, para mostrar meus projetos e habilidade que estou desenvolvendo.",
   "main": "chatbot.js",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
