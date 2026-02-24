@@ -390,6 +390,31 @@ footer h2 {
     -webkit-text-fill-color: transparent;
 }
 
+footer .contatos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+footer .contatos a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor-principal);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+footer .contatos a:hover {
+    color: var(--laranja);
+}
+
+footer .contatos img {
+    width: 25px;
+    height: auto;
+}
+
 footer .redes-sociais {
     display: flex;
     flex-direction: row;
