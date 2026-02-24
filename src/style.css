@@ -434,6 +434,25 @@ footer .copyright {
     font-size: 0.9rem;
 }
 
+footer .copyright a {
+    color: var(--cor-principal);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+footer .copyright a:hover {
+    color: var(--laranja);
+}
+
+.github-dev-icon {
+    width: 16px;
+    height: auto;
+    filter: brightness(1);
+}
+
 /* --- ESTILOS DO CHATBOT (DESKTOP) --- */
 #chatbot-button {
     position: fixed;
