@@ -26,13 +26,13 @@ body {
 }
 
 /* --- Efeitos de Animação --- */
-.fade-in {
+.js-enabled .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1.5s ease-out 0.2s, transform 1.5s ease-out 0.2s;
 }
 
-.fade-in.aparece {
+.js-enabled .fade-in.aparece {
     opacity: 1;
     transform: translateY(0);
 }
